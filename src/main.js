@@ -10,8 +10,62 @@ var cursors;
 var G = (function () {
     function G() {
     }
+    G.onDown = function (key, callback, context) {
+        if (typeof context === "undefined") { context = G; }
+        G.game.input.keyboard.addKey(key).onDown.add(callback, context);
+    };
     return G;
 })();
+
+function controlBody(body) {
+    if (cursors.left.isDown) {
+        body.velocity.x = -300;
+    } else if (cursors.right.isDown) {
+        body.velocity.x = 300;
+    } else {
+        body.velocity.x = 0;
+    }
+
+    if (cursors.up.isDown) {
+        body.velocity.y = -300;
+    } else if (cursors.down.isDown) {
+        body.velocity.y = 300;
+    } else {
+        body.velocity.y = 0;
+    }
+}
+
+var Entity = (function (_super) {
+    __extends(Entity, _super);
+    function Entity(game, x, y, spritesheet, frame) {
+        _super.call(this, game, x, y, spritesheet, frame);
+
+        game.physics.enable(this, Phaser.Physics.ARCADE);
+
+        var superclassName = this.constructor.name;
+        var currentState = game.state.getCurrentState();
+        if (!currentState.groups[superclassName]) {
+            var newGroup = game.add.group();
+            currentState.groups[superclassName] = newGroup;
+            this.game.add.existing(newGroup);
+        }
+
+        currentState.groups[superclassName].add(this);
+    }
+    return Entity;
+})(Phaser.Sprite);
+
+var Focusable = (function (_super) {
+    __extends(Focusable, _super);
+    function Focusable() {
+        _super.apply(this, arguments);
+        this.isFocused = true;
+    }
+    Focusable.prototype.toggle = function () {
+        this.isFocused = !this.isFocused;
+    };
+    return Focusable;
+})(Entity);
 
 var Player = (function (_super) {
     __extends(Player, _super);
@@ -21,28 +75,13 @@ var Player = (function (_super) {
         G.game.physics.enable(this, Phaser.Physics.ARCADE);
     }
     Player.prototype.update = function () {
-        if (cursors.left.isDown) {
-            this.body.velocity.x = -300;
-        } else if (cursors.right.isDown) {
-            this.body.velocity.x = 300;
-        } else {
-            this.body.velocity.x = 0;
-        }
+        if (!this.isFocused)
+            return;
 
-        if (cursors.up.isDown) {
-            this.body.velocity.y = -300;
-        } else if (cursors.down.isDown) {
-            this.body.velocity.y = 300;
-        } else {
-            this.body.velocity.y = 0;
-        }
-
-        if (G.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
-            G.hud.switchPlayer.dispatch();
-        }
+        controlBody(this.body);
     };
     return Player;
-})(Phaser.Sprite);
+})(Focusable);
 
 var Icon = (function (_super) {
     __extends(Icon, _super);
@@ -71,6 +110,7 @@ var MainState = (function (_super) {
     __extends(MainState, _super);
     function MainState() {
         _super.apply(this, arguments);
+        this.groups = {};
     }
     MainState.prototype.preload = function () {
         //fw, fh, num frames,
@@ -84,6 +124,12 @@ var MainState = (function (_super) {
 
     MainState.prototype.init = function () {
         G.keyboard = G.game.input.keyboard;
+
+        G.onDown(Phaser.Keyboard.SPACEBAR, this.switchPlayer, this);
+    };
+
+    MainState.prototype.switchPlayer = function () {
+        G.hud.switchPlayer.dispatch();
     };
 
     MainState.prototype.create = function () {
