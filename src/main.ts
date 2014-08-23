@@ -61,6 +61,9 @@ class MainState extends Phaser.State {
 
  	switchPlayer():void {
 		G.hud.switchPlayer.dispatch();
+
+		G.player.toggle();
+		G.robot.toggle();
  	}
 
 	public create():void {

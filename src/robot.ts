@@ -3,6 +3,7 @@
 class Robot extends Focusable {
   constructor() {
     super(G.game, 64, 0, "robot", 0);
+    this.isFocused = false;
 
     G.game.physics.enable(this, Phaser.Physics.ARCADE);
   }

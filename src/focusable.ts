@@ -19,6 +19,8 @@ class Focusable extends Entity {
 
   toggle() {
     this.isFocused = !this.isFocused;
+    this.body.velocity.x = 0;
+    this.body.velocity.y = 0;
   }
 
   update() {
