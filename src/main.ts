@@ -48,6 +48,7 @@ class MainState extends Phaser.State {
 		this.load.spritesheet("robot", "assets/robot.png", 32, 32);
 		this.load.spritesheet("tileskey", "assets/tiles.png", 32, 32);
 		this.load.spritesheet("hud", "assets/hud.png", 32, 32, 2);
+		this.load.spritesheet("selection", "assets/selection.png", 32, 32, 1);
 
 		this.load.tilemap("map", "assets/map.json", null, Phaser.Tilemap.TILED_JSON);
 	}

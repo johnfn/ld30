@@ -8,6 +8,8 @@ class Player extends Focusable {
   }
 
   update():void {
+    super.update();
+
     if (!this.isFocused) return;
 
     controlBody(this.body);
