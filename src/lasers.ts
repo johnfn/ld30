@@ -4,6 +4,7 @@ class Laser extends MapObject {
   line:Phaser.Line;
   data:Phaser.BitmapData;
   w:number = 10;
+  on:boolean = true;
 
   gfx:Phaser.Graphics;
 
@@ -18,11 +19,14 @@ class Laser extends MapObject {
   }
 
   render() {
-    var top = this.raycast();
-
     this.gfx.clear();
-    this.gfx.beginFill(0xff0000, 1);
-    this.gfx.drawRect(this.x, top, this.w, this.y - top);
+
+    if (this.on) {
+      var top = this.raycast();
+
+      this.gfx.beginFill(0xff0000, 1);
+      this.gfx.drawRect(this.x, top, this.w, this.y - top);
+    }
   }
 
   update() {
@@ -38,5 +42,9 @@ class Laser extends MapObject {
     }
 
     return maxHeight;
+  }
+
+  off() {
+    this.on = false;
   }
 }

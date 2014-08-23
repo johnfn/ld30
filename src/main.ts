@@ -104,9 +104,9 @@ class MainState extends Phaser.State {
 		this.game.physics.arcade.collide(G.player, G.walls);
 		this.game.physics.arcade.collide(G.robot, G.walls);
 
-		this.game.physics.arcade.collide(G.player, Switch.all, (player, button) => {
-			console.log("u press swautc");
-		})
+		this.game.physics.arcade.overlap(G.player, Switch.all, (player, button) => {
+			button.trigger();
+		});
 
 		this.camera.follow(G.focus, Phaser.Camera.FOLLOW_PLATFORMER);
 

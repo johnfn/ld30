@@ -5,12 +5,12 @@ class Switch extends MapObject {
 
   constructor(game:Phaser.Game, x:number, y:number, spritesheet:string, frame:number) {
     super(game, x, y, spritesheet, frame);
-
-    debugger;
   }
 
   trigger() {
     //TODO
     var laser = this.getObjectsOnLevel()[0];
+
+    laser.off();
   }
 }
