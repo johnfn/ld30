@@ -31,6 +31,7 @@ class MainState extends Phaser.State {
 		this.load.spritesheet("hud", "assets/hud.png", 32, 32, 2);
 		this.load.spritesheet("selection", "assets/selection.png", 32, 32, 1);
 		this.load.spritesheet("dialog", "assets/dialog.png", 400, 200, 1);
+		this.load.spritesheet("laserkey", "assets/laser.png", 32, 32, 1);
 
 		this.load.tilemap("map", "assets/map.json", null, Phaser.Tilemap.TILED_JSON);
 	}
@@ -89,10 +90,12 @@ class MainState extends Phaser.State {
 
 		var d:Dialog = new Dialog(["Crashed on an uninhabited world...", "Again."]);
 		this.game.add.existing(d);
+
+		tileset.createFromObjects("lasers_up", 4, "laserkey", 0, true, true, this.game.world, Laser);
 	}
 
 	public update():void {
-		this.game.physics.arcade.TILE_BIAS = 30;
+		(<any> this.game.physics.arcade).TILE_BIAS = 30;
 
 		this.game.physics.arcade.collide(G.player, G.walls);
 		this.game.physics.arcade.collide(G.robot, G.walls);
