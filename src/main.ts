@@ -2,31 +2,6 @@
 
 var cursors:Phaser.CursorKeys;
 
-class G {
-	static walls:Phaser.TilemapLayer;
-	static player:Player;
-	static game:Phaser.Game;
-	static hud:HUD;
-	static keyboard:Phaser.Keyboard;
-	static robot:Robot;
-	static focus:Focusable;
-
-	static SCREEN_WIDTH:number = 512;
-	static SCREEN_HEIGHT:number = 512;
-
-	static onDown:Function = (key:number, callback: Function, context:any = G) => {
-		G.game.input.keyboard.addKey(key).onDown.add(callback, context);
-	}
-}
-
-class GameMap {
-	static x:number = 0;
-	static y:number = 0;
-
-	static w:number = 640;
-	static h:number = 640;
-}
-
 function controlBody(body:Phaser.Physics.Arcade.Body) {
 	if (cursors.left.isDown) {
 		body.velocity.x = -300;
@@ -55,6 +30,7 @@ class MainState extends Phaser.State {
 		this.load.spritesheet("tileskey", "assets/tiles.png", 32, 32);
 		this.load.spritesheet("hud", "assets/hud.png", 32, 32, 2);
 		this.load.spritesheet("selection", "assets/selection.png", 32, 32, 1);
+		this.load.spritesheet("dialog", "assets/dialog.png", 400, 200, 1);
 
 		this.load.tilemap("map", "assets/map.json", null, Phaser.Tilemap.TILED_JSON);
 	}
@@ -106,6 +82,9 @@ class MainState extends Phaser.State {
 		this.game.add.existing(G.hud);
 
 		G.focus = G.player;
+
+		var d:Dialog = new Dialog();
+		this.game.add.existing(d);
 	}
 
 	public update():void {
