@@ -8,6 +8,7 @@ class G {
 	static game:Phaser.Game;
 	static hud:HUD;
 	static keyboard:Phaser.Keyboard;
+	static robot:Robot;
 
 	static onDown:Function = (key:number, callback: Function, context:any = G) => {
 		G.game.input.keyboard.addKey(key).onDown.add(callback, context);
@@ -35,21 +36,6 @@ function controlBody(body:Phaser.Physics.Arcade.Body) {
 class Icon extends Phaser.Sprite {
 	constructor() {
 		super(G.game, 0, 0, "hud", 1);
-	}
-}
-
-class HUD extends Phaser.Group {
-	switchPlayer:Phaser.Signal;
-
-	constructor() {
-		super(G.game);
-
-		this.add(new Icon());
-
-		this.switchPlayer = new Phaser.Signal();
-		this.switchPlayer.add(() => {
-			console.log("hey!");
-		});
 	}
 }
 
@@ -89,6 +75,12 @@ class MainState extends Phaser.State {
 		G.player = new Player();
 		this.game.add.existing(G.player);
 
+		G.robot = new Robot();
+		this.game.add.existing(G.robot);
+
+		G.robot.x = 200;
+		G.robot.y = 50;
+
 		G.hud = new HUD();
 
 		this.game.add.existing(G.hud);
@@ -96,6 +88,7 @@ class MainState extends Phaser.State {
 
 	public update():void {
 		this.game.physics.arcade.collide(G.player, G.walls);
+		this.game.physics.arcade.collide(G.robot, G.walls);
 	}
 }
 

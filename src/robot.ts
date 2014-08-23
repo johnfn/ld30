@@ -1,8 +1,8 @@
 /// <reference path="references.ts" />
 
-class Player extends Focusable {
+class Robot extends Focusable {
   constructor() {
-    super(G.game, 64, 0, "player", 0);
+    super(G.game, 64, 0, "robot", 0);
 
     G.game.physics.enable(this, Phaser.Physics.ARCADE);
   }
