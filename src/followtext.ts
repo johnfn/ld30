@@ -12,29 +12,30 @@ class FollowText extends Phaser.Group {
 
     super(G.game);
 
+    this.setStyle();
+
     this.dialog = dialog;
     this.target = target;
     this.text = new Phaser.Text(G.game, this.target.x, this.target.y - 20, "", this.style);
 
     this.add(this.text);
 
-    this.setStyle();
     this.newDialog(dialog);
   }
 
   setStyle() {
     this.style = {
       wordWrapWidth: 150,
-      font: "15px Arial",
+      font: "12px Arial",
       wordWrap: true,
-      fill: "#000"
+      fill: "white"
     };
   }
 
   update() {
     this.timeLeft--;
 
-    this.text.x = this.target.x - 100;
+    this.text.x = this.target.x;
     this.text.y = this.target.y - 20;
 
     if (this.timeLeft < 0) {
