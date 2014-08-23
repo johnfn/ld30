@@ -23,7 +23,7 @@ class G {
 }
 
 class GameMap {
-  static x:number = 0;
+  static x:number = -1; // trigger an enter event even on the first map
   static y:number = 0;
 
   static w:number = 640;
