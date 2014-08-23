@@ -7,10 +7,16 @@ var __extends = this.__extends || function (d, b) {
 };
 var cursors;
 
+var G = (function () {
+    function G() {
+    }
+    return G;
+})();
+
 var Player = (function (_super) {
     __extends(Player, _super);
     function Player(game) {
-        _super.call(this, game, 0, 0, "player", 0);
+        _super.call(this, game, 64, 0, "player", 0);
 
         game.physics.enable(this, Phaser.Physics.ARCADE);
     }
@@ -53,19 +59,19 @@ var MainState = (function (_super) {
     MainState.prototype.create = function () {
         cursors = this.game.input.keyboard.createCursorKeys();
 
-        var p = new Player(this.game);
+        G.player = new Player(this.game);
 
-        this.game.add.existing(p);
+        this.game.add.existing(G.player);
 
         var tileset = this.game.add.tilemap("map", 32, 32, 30, 30);
         tileset.addTilesetImage("tiles", "tileskey", 25, 25);
         tileset.setCollisionBetween(1, 151, true, "collision");
 
-        this.walls = tileset.createLayer("collision");
-        //this.game.add.sprite(0, 0, "player");
+        G.walls = tileset.createLayer("collision");
     };
 
     MainState.prototype.update = function () {
+        this.game.physics.arcade.collide(G.player, G.walls);
     };
     return MainState;
 })(Phaser.State);
