@@ -42,6 +42,8 @@ class MainState extends Phaser.State {
 	}
 
  	switchPlayer():void {
+ 		if (!G.foundRobot) return;
+
 		G.hud.switchPlayer.dispatch();
 
 		G.player.toggle();
@@ -71,11 +73,13 @@ class MainState extends Phaser.State {
 		G.player = new Player();
 		this.game.add.existing(G.player);
 
+		/*
 		G.robot = new Robot();
 		this.game.add.existing(G.robot);
 
 		G.robot.x = 200;
 		G.robot.y = 50;
+		*/
 
 		G.hud = new HUD();
 

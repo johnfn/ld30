@@ -27,5 +27,7 @@ class HUD extends Phaser.Group {
     this.switchPlayer.add(() => {
       self.icon.toggle();
     });
+
+    this.fixedToCamera = true;
   }
 }

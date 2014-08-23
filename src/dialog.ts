@@ -15,6 +15,8 @@ class Dialog extends Phaser.Group {
     this.addPressXText();
 
     this.fixedToCamera = true;
+
+    G.onDown(Phaser.Keyboard.X, this.advance, this);
   }
 
   addBox() {
@@ -48,5 +50,9 @@ class Dialog extends Phaser.Group {
     this.pressXText.x = this.box.x + this.box.width - this.pressXText.width - 10;
     this.pressXText.y = this.box.y + this.box.height - this.pressXText.height;
     this.add(this.pressXText);
+  }
+
+  advance() {
+    this.visible = false;
   }
 }

@@ -7,6 +7,7 @@ class G {
   static hud:HUD;
   static keyboard:Phaser.Keyboard;
   static robot:Robot;
+  static foundRobot:boolean = false;
   static focus:Focusable;
 
   static SCREEN_WIDTH:number = 512;
