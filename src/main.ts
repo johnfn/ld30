@@ -12,7 +12,9 @@ function controlBody(body:Phaser.Physics.Arcade.Body) {
 	}
 
 	if (cursors.up.isDown) {
-		if (body.blocked.down || body.touching.down) {
+		if ((body.blocked.down || body.touching.down) && body.velocity.y > -600) {
+			console.log("derp");
+
 			body.velocity.y = -600;
 		}
 	}
@@ -119,6 +121,10 @@ class MainState extends Phaser.State {
 
 		this.game.physics.arcade.overlap(G.player, Switch.all, (player, button) => {
 			button.trigger();
+		});
+
+		this.game.physics.arcade.collide(G.player, BounceShroom.all, (player, shroom) => {
+			player.body.velocity.y *= -3.0;
 		});
 
 		this.camera.follow(G.focus, Phaser.Camera.FOLLOW_PLATFORMER);
