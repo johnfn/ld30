@@ -9,6 +9,7 @@ class G {
 	static hud:HUD;
 	static keyboard:Phaser.Keyboard;
 	static robot:Robot;
+	static focus:Focusable;
 
 	static onDown:Function = (key:number, callback: Function, context:any = G) => {
 		G.game.input.keyboard.addKey(key).onDown.add(callback, context);
@@ -58,9 +59,19 @@ class MainState extends Phaser.State {
 
 		G.player.toggle();
 		G.robot.toggle();
+
+		if (G.player.isFocused) {
+			G.focus = G.player;
+		}
+
+		if (G.robot.isFocused) {
+			G.focus = G.robot;
+		}
  	}
 
 	public create():void {
+		G.game.world.setBounds(0, 0, 2000, 2000);
+
 		cursors = this.game.input.keyboard.createCursorKeys();
 
 		var tileset:Phaser.Tilemap = this.game.add.tilemap("map", 32, 32, 30, 30); // w,h, mapw, maph
@@ -82,11 +93,15 @@ class MainState extends Phaser.State {
 		G.hud = new HUD();
 
 		this.game.add.existing(G.hud);
+
+		G.focus = G.player;
 	}
 
 	public update():void {
 		this.game.physics.arcade.collide(G.player, G.walls);
 		this.game.physics.arcade.collide(G.robot, G.walls);
+
+		this.camera.follow(G.focus, Phaser.Camera.FOLLOW_PLATFORMER);
 	}
 }
 
@@ -95,7 +110,7 @@ class Game {
 
 	constructor() {
 		this.state = new MainState();
-		G.game = new Phaser.Game(800, 600, Phaser.WEBGL, "main", this.state);
+		G.game = new Phaser.Game(512, 512, Phaser.WEBGL, "main", this.state);
 	}
 
 }
