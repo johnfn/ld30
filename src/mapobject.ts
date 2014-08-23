@@ -18,6 +18,9 @@ class MapObject extends Phaser.Sprite {
   }
 
   getObjectsOnLevel():Phaser.Sprite[] {
-    return G.objects[this.objKey];
+    var objs:Phaser.Sprite[] = G.objects[this.objKey];
+    var self = this;
+
+    return objs.filter((item) => { return item !== self; });
   }
 }
