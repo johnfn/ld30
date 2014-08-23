@@ -33,12 +33,6 @@ function controlBody(body:Phaser.Physics.Arcade.Body) {
 	}
 }
 
-class Icon extends Phaser.Sprite {
-	constructor() {
-		super(G.game, 0, 0, "hud", 1);
-	}
-}
-
 class MainState extends Phaser.State {
 	groups: {[key: string]: Phaser.Group} = {};
 
