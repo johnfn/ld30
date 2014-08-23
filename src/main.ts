@@ -1,4 +1,4 @@
-/// <reference path="../d/phaser.d.ts" />
+/// <reference path="references.ts" />
 
 var cursors:Phaser.CursorKeys;
 
@@ -29,50 +29,6 @@ function controlBody(body:Phaser.Physics.Arcade.Body) {
 		body.velocity.y = 300;
 	} else {
 		body.velocity.y = 0;
-	}
-}
-
-class Entity extends Phaser.Sprite {
-	body:Phaser.Physics.Arcade.Body;
-
-	constructor(game:Phaser.Game, x:number, y:number, spritesheet:string, frame:number) {
-		super(game, x, y, spritesheet, frame);
-
-		game.physics.enable(this, Phaser.Physics.ARCADE);
-
-		var superclassName:string = <string> (<any> this).constructor.name;
-		var currentState:MainState = (<MainState> game.state.getCurrentState());
-		if (!currentState.groups[superclassName]) {
-			var newGroup:Phaser.Group = game.add.group();
-			currentState.groups[superclassName] = newGroup;
-			this.game.add.existing(newGroup);
-		}
-
-		currentState.groups[superclassName].add(this);
-	}
-}
-
-class Focusable extends Entity {
-	isFocused:boolean = true;
-
-	toggle() {
-		this.isFocused = !this.isFocused;
-	}
-}
-
-class Player extends Focusable {
-	body:Phaser.Physics.Arcade.Body;
-
-	constructor() {
-		super(G.game, 64, 0, "player", 0);
-
-		G.game.physics.enable(this, Phaser.Physics.ARCADE);
- 	}
-
-	update():void {
-		if (!this.isFocused) return;
-
-		controlBody(this.body);
 	}
 }
 

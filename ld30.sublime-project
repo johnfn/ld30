@@ -4,7 +4,7 @@
 		{
 			"follow_symlinks": true,
 			"path": ".",
-      "file_exclude_patterns": ["*.html"],
+      "file_exclude_patterns": ["*.html", "*.js"],
       "folder_exclude_patterns": ["build"]
 		}
 	]
