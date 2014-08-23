@@ -1,3 +1,4 @@
+/// <reference path="../d/phaser.d.ts" />
 var __extends = this.__extends || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -21,6 +22,14 @@ var Player = (function (_super) {
         } else {
             this.body.velocity.x = 0;
         }
+
+        if (cursors.up.isDown) {
+            this.body.velocity.y = -300;
+        } else if (cursors.down.isDown) {
+            this.body.velocity.y = 300;
+        } else {
+            this.body.velocity.y = 0;
+        }
     };
     return Player;
 })(Phaser.Sprite);
@@ -31,7 +40,11 @@ var MainState = (function (_super) {
         _super.apply(this, arguments);
     }
     MainState.prototype.preload = function () {
-        this.load.spritesheet("player", "assets/player.png", 25, 25, 1, 0, 0);
+        this.load.spritesheet("player", "assets/player.png", 32, 32, 1, 0, 0);
+        this.load.spritesheet("robot", "assets/robot.png", 32, 32, 1, 0, 0);
+        this.load.spritesheet("tileskey", "assets/tiles.png", 32, 32, 1, 0, 0);
+
+        this.load.tilemap("map", "assets/map.json", null, Phaser.Tilemap.TILED_JSON);
     };
 
     MainState.prototype.init = function () {
@@ -43,6 +56,12 @@ var MainState = (function (_super) {
         var p = new Player(this.game);
 
         this.game.add.existing(p);
+
+        var tileset = this.game.add.tilemap("map", 32, 32, 30, 30);
+        tileset.addTilesetImage("tiles", "tileskey", 25, 25);
+        tileset.setCollisionBetween(1, 151, true, "collision");
+
+        this.walls = tileset.createLayer("collision");
         //this.game.add.sprite(0, 0, "player");
     };
 
