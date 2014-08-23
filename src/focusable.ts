@@ -30,5 +30,7 @@ class Focusable extends Entity {
       this.indicator.x = this.x;
       this.indicator.y = this.y - 32;
     }
+
+    this.indicator.visible = this.isFocused;
   }
 }
