@@ -41,7 +41,12 @@ class Dialogs {
     ],
 
     "1,0": [
-      "This place seems barren..."
+      "This place seems barren but for plant life.",
+      "It seems like the bounce shroom has taken a hold here.",
+      "The bounce shroom is a mushroom-like plant with a coil-like skeleton.",
+      "Jumping on one will spring you into the air, but also kill the plant.",
+      "They are resilient, and seem to grow back if you leave and re-enter the area.",
+      "If you jump on several in a row, you could jump very high."
     ],
 
     "2,0": [

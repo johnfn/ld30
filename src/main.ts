@@ -125,6 +125,8 @@ class MainState extends Phaser.State {
 
 		this.game.physics.arcade.collide(G.player, BounceShroom.all, (player, shroom) => {
 			player.body.velocity.y *= -3.0;
+
+			shroom.wither();
 		});
 
 		this.camera.follow(G.focus, Phaser.Camera.FOLLOW_PLATFORMER);
@@ -150,6 +152,14 @@ class MainState extends Phaser.State {
 				G.screensSeen[key] = true;
 
 				G.dialog.start(Dialogs.byMap[key]);
+			}
+
+			for (var i = 0; i < MapObject.allMapObjects.length; i++) {
+				var mo:MapObject = MapObject.allMapObjects[i];
+
+				if (mo.mapX == relMapX && mo.mapY == relMapY) {
+					mo.enterLevel.dispatch(relMapX, relMapY);
+				}
 			}
 		}
 	}
