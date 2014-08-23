@@ -93,7 +93,9 @@ class MainState extends Phaser.State {
 		this.game.add.existing(d);
 
 		tileset.createFromObjects("lasers_up", 4, "laserkey", 0, true, true, this.game.world, Laser);
-		tileset.createFromObjects("switch", 5, "switchkey", 0, true, true, this.game.world, Switch);
+
+		Switch.all = this.game.add.group(this.game.world);
+		tileset.createFromObjects("switch", 5, "switchkey", 0, true, true, Switch.all, Switch);
 	}
 
 	public update():void {
@@ -101,6 +103,10 @@ class MainState extends Phaser.State {
 
 		this.game.physics.arcade.collide(G.player, G.walls);
 		this.game.physics.arcade.collide(G.robot, G.walls);
+
+		this.game.physics.arcade.collide(G.player, Switch.all, (player, button) => {
+			console.log("u press swautc");
+		})
 
 		this.camera.follow(G.focus, Phaser.Camera.FOLLOW_PLATFORMER);
 
