@@ -101,8 +101,6 @@ class MainState extends Phaser.State {
 		G.dialog = new Dialog();
 		this.game.add.existing(G.dialog);
 
-		G.dialog.start(["a", "b"]);
-
 		tileset.createFromObjects("lasers_up", 4, "laserkey", 0, true, true, this.game.world, Laser);
 
 		Switch.all = this.game.add.group(this.game.world);
@@ -128,11 +126,21 @@ class MainState extends Phaser.State {
 		var newMapX:number = Math.floor(G.focus.x / GameMap.w) * GameMap.w;
 		var newMapY:number = Math.floor(G.focus.y / GameMap.h) * GameMap.h;
 
+		var relMapX:number = Math.floor(G.focus.x / GameMap.w);
+		var relMapY:number = Math.floor(G.focus.y / GameMap.h);
+
 		if (newMapX != GameMap.x || newMapY != GameMap.y) {
 			G.game.world.setBounds(newMapX, newMapY, GameMap.w, GameMap.h);
 
 			GameMap.x = newMapX;
 			GameMap.y = newMapY;
+
+			var key = relMapX + "," + relMapY;
+			if (!(key in G.screensSeen)) {
+				G.screensSeen[key] = true;
+
+				G.dialog.start(Dialogs.byMap[key]);
+			}
 		}
 	}
 }

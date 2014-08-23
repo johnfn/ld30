@@ -15,6 +15,7 @@ class G {
   static SCREEN_HEIGHT:number = 512;
 
   static objects:{[key: string]: Phaser.Sprite[]} = {};
+  static screensSeen:{[key: string]: boolean} = {};
 
   static onDown:Function = (key:number, callback: Function, context:any = G) => {
     G.game.input.keyboard.addKey(key).onDown.add(callback, context);
@@ -30,14 +31,13 @@ class GameMap {
 }
 
 class Dialogs {
-  byMap:{[key: string]: string[]} = {
+  static byMap:{[key: string]: string[]} = {
     "0,0": [
       "DIARY LOG: Day 53, 2836 A.D.",
       "I was on a routine reconnaissance mission in Sector 28 when my ship took heavy damage from an unknown assailant.",
       "My spaceship ran out of fuel.",
       "I thought that I was going to die in empty space, but a desperate scan turned up this strange world in a sector that was supposedly empty.",
-      "I guess there's not much to do but look around.",
-      "Maybe I can find something to get me off this rock."
+      "I guess there's not much to do but look around."
     ],
 
     "1,0": [
