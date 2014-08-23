@@ -1,8 +1,12 @@
 /// <reference path="../d/phaser.d.ts" />
 /// <reference path="globals.ts" />
+
 /// <reference path="entity.ts" />
-/// <reference path="lasers.ts" />
+/// <reference path="mapobject.ts" />
 /// <reference path="focusable.ts" />
+
+/// <reference path="lasers.ts" />
+/// <reference path="switch.ts" />
 /// <reference path="player.ts" />
 /// <reference path="robot.ts" />
 /// <reference path="dialog.ts" />

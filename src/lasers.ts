@@ -1,6 +1,6 @@
 /// <reference path="references.ts" />
 
-class Laser extends Phaser.Sprite {
+class Laser extends MapObject {
   line:Phaser.Line;
   data:Phaser.BitmapData;
   w:number = 10;

@@ -13,6 +13,8 @@ class G {
   static SCREEN_WIDTH:number = 512;
   static SCREEN_HEIGHT:number = 512;
 
+  static objects:{[key: string]: Phaser.Sprite[]} = {};
+
   static onDown:Function = (key:number, callback: Function, context:any = G) => {
     G.game.input.keyboard.addKey(key).onDown.add(callback, context);
   }

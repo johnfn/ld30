@@ -46,6 +46,31 @@
          "width":200,
          "x":0,
          "y":0
+        }, 
+        {
+         "height":200,
+         "name":"switch",
+         "objects":[
+                {
+                 "gid":5,
+                 "height":0,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":448,
+                 "y":384
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "width":200,
+         "x":0,
+         "y":0
         }],
  "orientation":"orthogonal",
  "properties":
