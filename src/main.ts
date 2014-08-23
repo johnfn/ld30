@@ -32,6 +32,7 @@ class MainState extends Phaser.State {
 		this.load.spritesheet("selection", "assets/selection.png", 32, 32, 1);
 		this.load.spritesheet("dialog", "assets/dialog.png", 400, 200, 1);
 		this.load.spritesheet("laserkey", "assets/laser.png", 32, 32, 1);
+		this.load.spritesheet("shroomkey", "assets/shroom.png", 32, 32, 2);
 		this.load.spritesheet("switchkey", "assets/switch.png", 32, 32, 1);
 
 		this.load.tilemap("map", "assets/map.json", null, Phaser.Tilemap.TILED_JSON);
@@ -105,6 +106,9 @@ class MainState extends Phaser.State {
 
 		Switch.all = this.game.add.group(this.game.world);
 		tileset.createFromObjects("switch", 5, "switchkey", 0, true, true, Switch.all, Switch);
+
+		BounceShroom.all = this.game.add.group(this.game.world);
+		tileset.createFromObjects("bounceshroom", 6, "shroomkey", 0, true, true, BounceShroom.all, BounceShroom);
 	}
 
 	public update():void {
