@@ -36,6 +36,10 @@ var Player = (function (_super) {
         } else {
             this.body.velocity.y = 0;
         }
+
+        if (G.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
+            G.hud.switchPlayer.dispatch();
+        }
     };
     return Player;
 })(Phaser.Sprite);
@@ -54,6 +58,11 @@ var HUD = (function (_super) {
         _super.call(this, G.game);
 
         this.add(new Icon());
+
+        this.switchPlayer = new Phaser.Signal();
+        this.switchPlayer.add(function () {
+            console.log("hey!");
+        });
     }
     return HUD;
 })(Phaser.Group);
@@ -74,6 +83,7 @@ var MainState = (function (_super) {
     };
 
     MainState.prototype.init = function () {
+        G.keyboard = G.game.input.keyboard;
     };
 
     MainState.prototype.create = function () {

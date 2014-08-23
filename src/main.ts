@@ -7,6 +7,7 @@ class G {
 	static player:Player;
 	static game:Phaser.Game;
 	static hud:HUD;
+	static keyboard:Phaser.Keyboard;
 }
 
 class Player extends Phaser.Sprite {
@@ -34,6 +35,11 @@ class Player extends Phaser.Sprite {
 		} else {
 			this.body.velocity.y = 0;
 		}
+
+		if (G.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
+			G.hud.switchPlayer.dispatch();
+		}
+
 	}
 }
 
@@ -44,10 +50,17 @@ class Icon extends Phaser.Sprite {
 }
 
 class HUD extends Phaser.Group {
+	switchPlayer:Phaser.Signal;
+
 	constructor() {
 		super(G.game);
 
 		this.add(new Icon());
+
+		this.switchPlayer = new Phaser.Signal();
+		this.switchPlayer.add(() => {
+			console.log("hey!");
+		});
 	}
 }
 
@@ -63,7 +76,7 @@ class MainState extends Phaser.State {
 	}
 
 	public init():void {
-
+		G.keyboard = G.game.input.keyboard;
 	}
 
 	public create():void {
