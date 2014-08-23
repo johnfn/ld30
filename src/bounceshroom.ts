@@ -2,6 +2,7 @@
 
 class BounceShroom extends MapObject {
   static all:Phaser.Group = undefined;
+
   constructor(game:Phaser.Game, x:number, y:number, spritesheet:string, frame:number) {
     var self = this;
 
@@ -12,6 +13,8 @@ class BounceShroom extends MapObject {
     this.enterLevel.add(() => {
       self.revive();
     });
+
+    this.body.immovable = true;
   }
 
   wither() {
