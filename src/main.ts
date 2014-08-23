@@ -75,6 +75,15 @@ class MainState extends Phaser.State {
 		G.player = new Player();
 		this.game.add.existing(G.player);
 
+		var qq = new FollowText(G.player,
+			[ { text: 'hello', time: 100 },
+				{ text: 'hi', time: 100 },
+				{ text: 'sup', time: 100 },
+				{ text: 'bleh', time: 100 }
+			]);
+
+		this.game.add.existing(qq);
+
 		/*
 		G.robot = new Robot();
 		this.game.add.existing(G.robot);
