@@ -11,9 +11,20 @@ class G {
 	static robot:Robot;
 	static focus:Focusable;
 
+	static SCREEN_WIDTH:number = 512;
+	static SCREEN_HEIGHT:number = 512;
+
 	static onDown:Function = (key:number, callback: Function, context:any = G) => {
 		G.game.input.keyboard.addKey(key).onDown.add(callback, context);
 	}
+}
+
+class GameMap {
+	static x:number = 0;
+	static y:number = 0;
+
+	static w:number = 640;
+	static h:number = 640;
 }
 
 function controlBody(body:Phaser.Physics.Arcade.Body) {
@@ -70,7 +81,7 @@ class MainState extends Phaser.State {
  	}
 
 	public create():void {
-		G.game.world.setBounds(0, 0, 2000, 2000);
+		G.game.world.setBounds(0, 0, GameMap.w, GameMap.h);
 
 		cursors = this.game.input.keyboard.createCursorKeys();
 
@@ -102,6 +113,20 @@ class MainState extends Phaser.State {
 		this.game.physics.arcade.collide(G.robot, G.walls);
 
 		this.camera.follow(G.focus, Phaser.Camera.FOLLOW_PLATFORMER);
+
+		this.checkForCameraUpdate();
+	}
+
+	checkForCameraUpdate():void {
+		var newMapX:number = Math.floor(G.focus.x / GameMap.w) * GameMap.w;
+		var newMapY:number = Math.floor(G.focus.y / GameMap.h) * GameMap.h;
+
+		if (newMapX != GameMap.x || newMapY != GameMap.y) {
+			G.game.world.setBounds(newMapX, newMapY, GameMap.w, GameMap.h);
+
+			GameMap.x = newMapX;
+			GameMap.y = newMapY;
+		}
 	}
 }
 
@@ -110,7 +135,7 @@ class Game {
 
 	constructor() {
 		this.state = new MainState();
-		G.game = new Phaser.Game(512, 512, Phaser.WEBGL, "main", this.state);
+		G.game = new Phaser.Game(G.SCREEN_WIDTH, G.SCREEN_HEIGHT, Phaser.WEBGL, "main", this.state);
 	}
 
 }
