@@ -3,12 +3,15 @@
 class Dialog extends Phaser.Group {
   bottomOffset:number = 50;
   box:Phaser.Sprite;
-  text:Phaser.Text;
+  textbox:Phaser.Text;
   pressXText:Phaser.Text;
   style:any;
+  dialog:string[];
 
-  constructor() {
+  constructor(dialog:string[]) {
     super(G.game);
+
+    this.dialog = dialog;
 
     this.addBox();
     this.addText();
@@ -40,8 +43,8 @@ class Dialog extends Phaser.Group {
   }
 
   addText() {
-    this.text = new Phaser.Text(G.game, this.box.x + 10, this.box.y + 10, "Werdz werds werds wwerds werds wwerds werds wwerds werds wwerds werds wwerds werds wwerds werds wwerds werds wwerds werds wwerds werds wwerds werds werds", this.style);
-    this.add(this.text);
+    this.textbox = new Phaser.Text(G.game, this.box.x + 10, this.box.y + 10, this.dialog.shift(), this.style);
+    this.add(this.textbox);
   }
 
   addPressXText() {
@@ -53,6 +56,10 @@ class Dialog extends Phaser.Group {
   }
 
   advance() {
-    this.visible = false;
+    if (this.dialog.length == 0) {
+      this.visible = false;
+    } else {
+      this.textbox.text = this.dialog.shift();
+    }
   }
 }

@@ -87,7 +87,7 @@ class MainState extends Phaser.State {
 
 		G.focus = G.player;
 
-		var d:Dialog = new Dialog();
+		var d:Dialog = new Dialog(["Crashed on an uninhabited world...", "Again."]);
 		this.game.add.existing(d);
 	}
 
