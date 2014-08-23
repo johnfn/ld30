@@ -60,6 +60,7 @@ class MainState extends Phaser.State {
 		tileset.setCollisionBetween(1, 151, true, "collision");
 
 		G.walls = tileset.createLayer("collision");
+		var bg = tileset.createLayer("bg");
 	}
 
 	public update():void {
