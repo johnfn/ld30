@@ -8,18 +8,28 @@ class Dialog extends Phaser.Group {
   style:any;
   dialog:string[];
 
-  constructor(dialog:string[]) {
+  constructor() {
     super(G.game);
-
-    this.dialog = dialog;
 
     this.addBox();
     this.addText();
     this.addPressXText();
 
     this.fixedToCamera = true;
+    this.visible = false;
 
     G.onDown(Phaser.Keyboard.X, this.advance, this);
+  }
+
+  start(dialog:string[]) {
+    this.dialog = dialog;
+    this.visible = true;
+
+    this.next();
+  }
+
+  public next() {
+    this.textbox.text = this.dialog.shift();
   }
 
   addBox() {
@@ -43,7 +53,7 @@ class Dialog extends Phaser.Group {
   }
 
   addText() {
-    this.textbox = new Phaser.Text(G.game, this.box.x + 10, this.box.y + 10, this.dialog.shift(), this.style);
+    this.textbox = new Phaser.Text(G.game, this.box.x + 10, this.box.y + 10, "", this.style);
     this.add(this.textbox);
   }
 
@@ -59,7 +69,7 @@ class Dialog extends Phaser.Group {
     if (this.dialog.length == 0) {
       this.visible = false;
     } else {
-      this.textbox.text = this.dialog.shift();
+      this.next();
     }
   }
 }

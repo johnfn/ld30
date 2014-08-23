@@ -98,8 +98,10 @@ class MainState extends Phaser.State {
 
 		G.focus = G.player;
 
-		var d:Dialog = new Dialog(["Crashed on an uninhabited world...", "Again."]);
-		this.game.add.existing(d);
+		G.dialog = new Dialog();
+		this.game.add.existing(G.dialog);
+
+		G.dialog.start(["a", "b"]);
 
 		tileset.createFromObjects("lasers_up", 4, "laserkey", 0, true, true, this.game.world, Laser);
 
