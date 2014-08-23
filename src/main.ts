@@ -12,12 +12,12 @@ function controlBody(body:Phaser.Physics.Arcade.Body) {
 	}
 
 	if (cursors.up.isDown) {
-		body.velocity.y = -300;
-	} else if (cursors.down.isDown) {
-		body.velocity.y = 300;
-	} else {
-		body.velocity.y = 0;
+		if (body.blocked.down || body.touching.down) {
+			body.velocity.y = -600;
+		}
 	}
+
+	body.velocity.y += 30;
 }
 
 class MainState extends Phaser.State {
@@ -92,6 +92,8 @@ class MainState extends Phaser.State {
 	}
 
 	public update():void {
+		this.game.physics.arcade.TILE_BIAS = 30;
+
 		this.game.physics.arcade.collide(G.player, G.walls);
 		this.game.physics.arcade.collide(G.robot, G.walls);
 
@@ -120,7 +122,6 @@ class Game {
 		this.state = new MainState();
 		G.game = new Phaser.Game(G.SCREEN_WIDTH, G.SCREEN_HEIGHT, Phaser.WEBGL, "main", this.state);
 	}
-
 }
 
 new Game();
