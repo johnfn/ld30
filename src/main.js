@@ -15,10 +15,10 @@ var G = (function () {
 
 var Player = (function (_super) {
     __extends(Player, _super);
-    function Player(game) {
-        _super.call(this, game, 64, 0, "player", 0);
+    function Player() {
+        _super.call(this, G.game, 64, 0, "player", 0);
 
-        game.physics.enable(this, Phaser.Physics.ARCADE);
+        G.game.physics.enable(this, Phaser.Physics.ARCADE);
     }
     Player.prototype.update = function () {
         if (cursors.left.isDown) {
@@ -40,15 +40,35 @@ var Player = (function (_super) {
     return Player;
 })(Phaser.Sprite);
 
+var Icon = (function (_super) {
+    __extends(Icon, _super);
+    function Icon() {
+        _super.call(this, G.game, 0, 0, "hud", 1);
+    }
+    return Icon;
+})(Phaser.Sprite);
+
+var HUD = (function (_super) {
+    __extends(HUD, _super);
+    function HUD() {
+        _super.call(this, G.game);
+
+        this.add(new Icon());
+    }
+    return HUD;
+})(Phaser.Group);
+
 var MainState = (function (_super) {
     __extends(MainState, _super);
     function MainState() {
         _super.apply(this, arguments);
     }
     MainState.prototype.preload = function () {
-        this.load.spritesheet("player", "assets/player.png", 32, 32, 1, 0, 0);
-        this.load.spritesheet("robot", "assets/robot.png", 32, 32, 1, 0, 0);
-        this.load.spritesheet("tileskey", "assets/tiles.png", 32, 32, 1, 0, 0);
+        //fw, fh, num frames,
+        this.load.spritesheet("player", "assets/player.png", 32, 32);
+        this.load.spritesheet("robot", "assets/robot.png", 32, 32);
+        this.load.spritesheet("tileskey", "assets/tiles.png", 32, 32);
+        this.load.spritesheet("hud", "assets/hud.png", 32, 32, 2);
 
         this.load.tilemap("map", "assets/map.json", null, Phaser.Tilemap.TILED_JSON);
     };
@@ -59,16 +79,19 @@ var MainState = (function (_super) {
     MainState.prototype.create = function () {
         cursors = this.game.input.keyboard.createCursorKeys();
 
-        G.player = new Player(this.game);
-
-        this.game.add.existing(G.player);
-
         var tileset = this.game.add.tilemap("map", 32, 32, 30, 30);
         tileset.addTilesetImage("tiles", "tileskey", 25, 25);
         tileset.setCollisionBetween(1, 151, true, "collision");
 
         G.walls = tileset.createLayer("collision");
         var bg = tileset.createLayer("bg");
+
+        G.player = new Player();
+        this.game.add.existing(G.player);
+
+        G.hud = new HUD();
+
+        this.game.add.existing(G.hud);
     };
 
     MainState.prototype.update = function () {
@@ -80,7 +103,7 @@ var MainState = (function (_super) {
 var Game = (function () {
     function Game() {
         this.state = new MainState();
-        this.game = new Phaser.Game(800, 600, Phaser.WEBGL, "main", this.state);
+        G.game = new Phaser.Game(800, 600, Phaser.WEBGL, "main", this.state);
     }
     return Game;
 })();

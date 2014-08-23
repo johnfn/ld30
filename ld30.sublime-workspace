@@ -1,0 +1,955 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "game.TODO",
+			"settings":
+			{
+				"buffer_size": 358,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/main.ts",
+			"settings":
+			{
+				"buffer_size": 1966,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 118.0,
+		"selected_items":
+		[
+			[
+				"brow",
+				"Preferences: Browse Packages"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"type",
+				"Typescript: Navigate in file"
+			],
+			[
+				"brows",
+				"Preferences: Browse Packages"
+			],
+			[
+				"settings",
+				"Preferences: Settings - Default"
+			],
+			[
+				"pref def",
+				"Preferences: Settings - Default"
+			],
+			[
+				"pref de",
+				"Preferences: Settings - Default"
+			],
+			[
+				"pref",
+				"Preferences: Settings - User"
+			],
+			[
+				"key",
+				"Preferences: Key Bindings - Default"
+			],
+			[
+				"def",
+				"Preferences: Settings - Default"
+			],
+			[
+				"install p",
+				"Package Control: Install Package"
+			],
+			[
+				"defau",
+				"Preferences: Settings - Default"
+			],
+			[
+				"user ",
+				"Preferences: Settings - User"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 435.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/johnfn/code/ld30/bower_components/phaser-official/docs/Sprite.js.html",
+		"/Users/johnfn/code/ld30/bower_components/phaser-official/src/pixi/loaders/SpriteSheetLoader.js",
+		"/Users/johnfn/code/ld30/bower_components/phaser-official/docs/Signal.js.html",
+		"/Users/johnfn/code/ld30/bower_components/phaser-official/src/gameobjects/Sprite.js",
+		"/Users/johnfn/code/ld30/bower_components/phaser-official/docs/Phaser.Sprite.html",
+		"/Users/johnfn/code/ld30/bower_components/phaser-official/package.json",
+		"/Users/johnfn/code/ld30/bower_components/phaser-official/docs/Phaser.InputHandler.html",
+		"/Users/johnfn/code/ld30/bower_components/phaser-official/docs/Phaser.Utils.html",
+		"/Users/johnfn/code/ld30/bower_components/phaser-official/docs/Phaser.Utils.Debug.html",
+		"/Users/johnfn/code/ld30/bower_components/phaser-official/src/tilemap/Tilemap.js",
+		"/Users/johnfn/code/ld30/bower_components/phaser-official/docs/Spring.js.html",
+		"/Users/johnfn/code/ld30/bower_components/phaser-official/docs/scripts/sunlight-plugin.doclinks.js",
+		"/Users/johnfn/code/ld30/bower_components/phaser-official/docs/Phaser.Text.html",
+		"/Users/johnfn/code/ld30/bower_components/phaser-official/docs/Tilemap.js.html",
+		"/Users/johnfn/code/ld30/bower_components/phaser-official/docs/Phaser.Tilemap.html",
+		"/Users/johnfn/code/ld30/bower_components/phaser-official/docs/Phaser.Tile.html",
+		"/Users/johnfn/code/ld30/bower_components/phaser-official/docs/Phaser.TilemapLayer.html",
+		"/Users/johnfn/code/ld30/src/main.js",
+		"/Users/johnfn/code/ld30/src/main.ts",
+		"/Users/johnfn/Library/Application Support/Sublime Text 3/Packages/PlainTasks/Default (OSX).sublime-keymap",
+		"/Users/johnfn/Library/Application Support/Sublime Text 3/Packages/PlainTasks/PlainTasks (OSX).sublime-settings",
+		"/Users/johnfn/code/ld30/.sublimets",
+		"/Users/johnfn/code/ld30/bower_components/phaser-official/docs/Phaser.SinglePad.html",
+		"/Users/johnfn/code/ld30/bower_components/phaser-official/docs/Phaser.Signal.html",
+		"/Users/johnfn/code/ld30/bower_components/phaser-official/docgen/src/ReturnType.php",
+		"/Users/johnfn/code/ld30/index.html",
+		"/Users/johnfn/code/ld30/ts/main.ts",
+		"/Users/johnfn/work/web/javascript/init.js",
+		"/Users/johnfn/work/web/javascript/widgets/columnView.js",
+		"/Users/johnfn/work/web/templates/partials/social-bar-template.html",
+		"/Users/johnfn/work/web/less/team.less",
+		"/Users/johnfn/work/web/javascript/widgets/tabView.js",
+		"/Users/johnfn/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Users/johnfn/work/web/templates/partials/notification-template.html",
+		"/Users/johnfn/work/web/javascript/Views/post.js",
+		"/Users/johnfn/work/web/templates/partials/tabview-tab.html",
+		"/Users/johnfn/work/web/templates/partials/tab-link.html",
+		"/Users/johnfn/work/web/javascript/Views/comments.js",
+		"/Users/johnfn/work/web/priv/javascript/development.config.js",
+		"/Users/johnfn/work/web/templates/partials/upcoming-games-template.html",
+		"/Users/johnfn/work/web/templates/partials/team-sqor-athlete-card.html",
+		"/Users/johnfn/work/web/priv/scripts/test/combine_and_minify_test.py",
+		"/Users/johnfn/work/web/templates/partials/edit-profile-template.html",
+		"/Users/johnfn/work/web/templates/partials/searchpage-template.html",
+		"/Users/johnfn/work/web/less/search.less",
+		"/Users/johnfn/Preferences.sublime-settings",
+		"/Users/johnfn/work/web/templates/partials/user-post-template.html",
+		"/Users/johnfn/work/web/javascript/Views/feed-items.js",
+		"/Users/johnfn/work/web/javascript/util.js",
+		"/Users/johnfn/work/web/javascript/Views/upcoming-games.js",
+		"/Users/johnfn/Library/Application Support/Sublime Text 3/Packages/default/Preferences.sublime-settings",
+		"/Users/johnfn/work/web/templates/partials/feed-end-template.html",
+		"/Users/johnfn/work/web/priv/template_refactor.py",
+		"/Users/johnfn/work/web/README.md",
+		"/Users/johnfn/work/web/javascript/router.js",
+		"/Users/johnfn/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/johnfn/work/web/templates/partials/password-reset-template.html",
+		"/Users/johnfn/work/web/priv/javascript/production.config.js",
+		"/Users/johnfn/work/web/templates/partials/post-comment-template.html",
+		"/Users/johnfn/Library/Application Support/Sublime Text 3/Packages/Default/Default (OSX).sublime-keymap",
+		"/Users/johnfn/work/web/experiments/visualizations/geo/yankees_players.json",
+		"/Users/johnfn/work/web/javascript/backbone_example.js",
+		"/Users/johnfn/work/web/package.json",
+		"/Users/johnfn/work/web/javascript/websockets.js",
+		"/Users/johnfn/work/web/experiments/visualizations/mapPrototype/default.css",
+		"/Users/johnfn/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/johnfn/work/web/templates/partials/user-card.html",
+		"/Users/johnfn/work/web/experiments/visualizations/dataviz.html",
+		"/Users/johnfn/work/web/javascript/widgets/social.js",
+		"/Users/johnfn/work/web/javascript/Views/post_comment.js",
+		"/Users/johnfn/work/web/SQOR_CODING_GUIDE.README",
+		"/Users/johnfn/work/web/javascript/Collections/comments.js",
+		"/Users/johnfn/work/web/javascript/Collections/recommendedathlete.js",
+		"/Users/johnfn/work/web/javascript/Views/columnendgenerator.js",
+		"/Users/johnfn/work/web/experiments/visualizations/cluster.css",
+		"/Users/johnfn/work/web/javascript/view_helpers.js",
+		"/Users/johnfn/work/web/templates/partials/worldcup-votepanel.html",
+		"/Users/johnfn/work/web/templates/partials/tableEntry.html",
+		"/Users/johnfn/work/web/javascript/Views/feed.js",
+		"/Users/johnfn/work/web/javascript/Views/notification-popup-list.js",
+		"/Users/johnfn/work/web/javascript/Views/user.js",
+		"/Users/johnfn/work/web/templates/partials/post-template.html",
+		"/Users/johnfn/work/web/javascript/Models/post.js",
+		"/Users/johnfn/work/web/less/posts.less",
+		"/Users/johnfn/work/web/less/teams.less",
+		"/Users/johnfn/work/web/javascript/Collections/feed.js",
+		"/Users/johnfn/work/web/less/main.less",
+		"/Users/johnfn/Downloads/XLN Audio Addictive Drums 2 v2.0.0 - R2R [oddsox]/R2R.nfo",
+		"/Users/johnfn/work/web/javascript/vendor/jquery.emoji.js",
+		"/Users/johnfn/work/web/javascript/Collections/featuredathlete.js",
+		"/Users/johnfn/work/web/javascript/Views/athlete.js",
+		"/Users/johnfn/work/web/templates/partials/column-template.html",
+		"/Users/johnfn/work/web/javascript/config.js",
+		"/Users/johnfn/work/web/templates/partials/example-template-local.html",
+		"/Users/johnfn/work/web/javascript/Models/login.js",
+		"/Users/johnfn/work/web/javascript/Collections/likes.js",
+		"/Users/johnfn/work/web/javascript/Views/featuredathletecard.js",
+		"/Users/johnfn/work/web/templates/partials/single-post-template.html",
+		"/Users/johnfn/work/web/templates/singupSuccess.html",
+		"/Users/johnfn/work/web/less/feed.less",
+		"/Users/johnfn/work/web/javascript/Views/notification-popup.js",
+		"/Users/johnfn/work/web/templates/partials/athlete-page-template.html",
+		"/Users/johnfn/work/web/javascript/Models/athlete.js",
+		"/Users/johnfn/work/web/index.html",
+		"/Users/johnfn/work/web/IDEAS.md",
+		"/Users/johnfn/work/web/priv/scripts/combine_and_minify.py",
+		"/Users/johnfn/work/web/templates/partials/about-page-engineering.html",
+		"/Users/johnfn/work/web/javascript/vendor/backbone-1.1.2.js",
+		"/Users/johnfn/work/web/experiments/visualizations/mapPrototype/brettAthlets.html",
+		"/Users/johnfn/work/web/css/vendor/bootstrap.css",
+		"/Users/johnfn/work/web/javascript/Models/notification.js",
+		"/Users/johnfn/work/web/javascript/Views/notifications.js",
+		"/Users/johnfn/work/web/experiments/visualizations/old_json_csv/nfl_2013_old.json",
+		"/Users/johnfn/work/web/javascript/Views/navbar.js",
+		"/Users/johnfn/work/web/javascript/Models/notification-popup.js",
+		"/Users/johnfn/work/web/templates/partials/notification-popup.html",
+		"/Users/johnfn/work/web/experiments/visualizations/geo/cluster_files/util.js",
+		"/Users/johnfn/work/web/templates/partials/user-home-template.html",
+		"/Users/johnfn/work/web/less/vars.less",
+		"/Users/johnfn/work/web/less/athlete.less",
+		"/Users/johnfn/work/web/templates/partials/autocomplete-template.html",
+		"/Users/johnfn/work/web/less/about.less",
+		"/Users/johnfn/work/web/experiments/visualizations/mapPrototype/mapsAthletes.html",
+		"/Users/johnfn/work/web/javascript/Views/single_post_page.js",
+		"/Users/johnfn/work/web/less/notifications.less",
+		"/Users/johnfn/work/web/templates/partials/notification-popup-list.html",
+		"/Users/johnfn/work/web/templates/partials/worldcup-match-prestart.html",
+		"/Users/johnfn/work/web/javascript/Collections/notifications.js"
+	],
+	"find":
+	{
+		"height": 33.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"*.js, *.ts, -*.html",
+			"*.js, *.ts",
+			"",
+			"/Users/johnfn/work/web",
+			"/Users/johnfn/work/web, *.less",
+			"/Users/johnfn/work/web",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"sprites",
+			"cl",
+			"\\t",
+			"data-bypass",
+			"ncaa",
+			"notification.highlight",
+			"highlight",
+			"makePostFollowRequest",
+			"CommentList",
+			"SocialBarView",
+			"PostComment",
+			"CommentList",
+			"sqor.SocialBarView",
+			"SocialBarV",
+			"subViews",
+			"Views.FeedItem",
+			"CommentList",
+			"team-info",
+			"margin: 5px 0px;",
+			".team",
+			"emoji",
+			"sqor.Views.Feed",
+			"websocket:",
+			"Dispat",
+			"athlete-page",
+			"sqor.Views.NewItemsPanel",
+			"sqor.Views.PanelColumnView",
+			"New post!",
+			"bootstrapCol",
+			"Post was removed",
+			"sqor.Views.NotificationPopup",
+			"summarizeIt",
+			"WebsocketDispatcher",
+			"sqor.Views.Notification.Type",
+			"sqor.Views.Notification",
+			"was removed",
+			"Post was",
+			"removed",
+			"Post was removed",
+			"notification-templ",
+			"liked your",
+			"WebsocketDispatcher",
+			"PlayerInfoJSON",
+			"removeModel"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "game.TODO",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 358,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								357,
+								357
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PlainTasks/PlainTasks.tmLanguage",
+							"vintage":
+							{
+								"_vintageous_glue_until_normal_mode": false,
+								"action": null,
+								"action_count": "",
+								"capture_register": false,
+								"mode": "mode_normal",
+								"motion": null,
+								"motion_count": "",
+								"normal_insert_count": "1",
+								"partial_sequence": "",
+								"register": "\"",
+								"repeat_data":
+								[
+									"native",
+									[
+										"sequence",
+										{
+											"commands":
+											[
+												[
+													"_vi_a",
+													{
+														"count": 1,
+														"mode": "mode_internal_normal"
+													}
+												],
+												[
+													"insert",
+													{
+														"characters": "HUdz"
+													}
+												],
+												[
+													"left_delete",
+													null
+												],
+												[
+													"left_delete",
+													null
+												],
+												[
+													"insert",
+													{
+														"characters": "Dz"
+													}
+												]
+											]
+										}
+									],
+									"mode_insert",
+									null
+								],
+								"sequence": "",
+								"xpos": 8
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/main.ts",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1966,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								532,
+								532
+							]
+						],
+						"settings":
+						{
+							"auto_complete": true,
+							"extensions":
+							[
+								"ts"
+							],
+							"highlight_line": false,
+							"syntax": "Packages/T3S/theme/Typescript.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"vintage":
+							{
+								"_vintageous_glue_until_normal_mode": false,
+								"_vintageous_gluing_sequence": false,
+								"_vintageous_non_interactive": false,
+								"action": null,
+								"action_count": "",
+								"capture_register": false,
+								"mode": "mode_normal",
+								"motion": null,
+								"motion_count": "",
+								"normal_insert_count": "1",
+								"partial_sequence": "",
+								"register": "\"",
+								"repeat_data":
+								[
+									"native",
+									[
+										"sequence",
+										{
+											"commands":
+											[
+												[
+													"_vi_o",
+													{
+														"count": 1,
+														"mode": "mode_internal_normal"
+													}
+												],
+												[
+													"insert",
+													{
+														"characters": "\nclass"
+													}
+												],
+												[
+													"insert",
+													{
+														"characters": " HUD"
+													}
+												],
+												[
+													"insert",
+													{
+														"characters": " extends"
+													}
+												],
+												[
+													"insert",
+													{
+														"characters": " Phaser.G"
+													}
+												],
+												[
+													"insert",
+													{
+														"characters": "roup"
+													}
+												],
+												[
+													"insert",
+													{
+														"characters": " "
+													}
+												],
+												[
+													"insert_snippet",
+													{
+														"contents": "{$0}"
+													}
+												],
+												[
+													"run_macro_file",
+													{
+														"file": "res://Packages/Default/Add Line in Braces.sublime-macro"
+													}
+												],
+												[
+													"insert",
+													{
+														"characters": "constructor"
+													}
+												],
+												[
+													"insert_snippet",
+													{
+														"contents": "($0)"
+													}
+												],
+												[
+													"move",
+													{
+														"by": "characters",
+														"forward": true
+													}
+												],
+												[
+													"insert",
+													{
+														"characters": " "
+													}
+												],
+												[
+													"insert_snippet",
+													{
+														"contents": "{$0}"
+													}
+												],
+												[
+													"run_macro_file",
+													{
+														"file": "res://Packages/Default/Add Line in Braces.sublime-macro"
+													}
+												]
+											]
+										}
+									],
+									"mode_insert",
+									null
+								],
+								"sequence": "",
+								"xpos": 37
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.typescript_output":
+	{
+		"height": 98.0
+	},
+	"project": "ld30.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"psprite.js",
+				"bower_components/phaser-official/src/gameobjects/Sprite.js"
+			],
+			[
+				"spritesheet",
+				"bower_components/phaser-official/src/pixi/loaders/SpriteSheetLoader.js"
+			],
+			[
+				"ptilemap.js",
+				"bower_components/phaser-official/src/tilemap/Tilemap.js"
+			],
+			[
+				"main.ts",
+				"src/main.ts"
+			],
+			[
+				"pspriteshe",
+				"bower_components/phaser-official/src/pixi/loaders/SpriteSheetLoader.js"
+			],
+			[
+				"psprite",
+				"bower_components/phaser-official/docs/Phaser.Sprite.html"
+			],
+			[
+				"index",
+				"index.html"
+			],
+			[
+				"ined",
+				"index.html"
+			],
+			[
+				"cv.",
+				"javascript/widgets/columnView.js"
+			],
+			[
+				"tv.js",
+				"javascript/widgets/tabView.js"
+			],
+			[
+				"tv-temp",
+				"templates/partials/tabview-template.html"
+			],
+			[
+				"tabv-tab",
+				"templates/partials/tabview-tab.html"
+			],
+			[
+				"tabview",
+				"javascript/widgets/tabView.js"
+			],
+			[
+				"tab-tem",
+				"templates/partials/tab-template.html"
+			],
+			[
+				"u-g-t",
+				"templates/partials/upcoming-games-template.html"
+			],
+			[
+				"col-templ",
+				"templates/partials/column-template.html"
+			],
+			[
+				"colview",
+				"javascript/widgets/columnView.js"
+			],
+			[
+				"upcom",
+				"javascript/Views/upcoming-games.js"
+			],
+			[
+				"u-g",
+				"templates/partials/upcoming-games-template.html"
+			],
+			[
+				"rout",
+				"javascript/router.js"
+			],
+			[
+				"dev.",
+				"priv/javascript/development.config.js"
+			],
+			[
+				"prod",
+				"priv/javascript/production.config.js"
+			],
+			[
+				"webs",
+				"javascript/websockets.js"
+			],
+			[
+				"postcomm",
+				"javascript/Views/post_comment.js"
+			],
+			[
+				"socialbar",
+				"templates/partials/social-bar-template.html"
+			],
+			[
+				"comm-template",
+				"templates/partials/comment-template.html"
+			],
+			[
+				"comment",
+				"javascript/Views/comments.js"
+			],
+			[
+				"comments",
+				"javascript/Collections/comments.js"
+			],
+			[
+				"pct",
+				"templates/partials/post-comment-template.html"
+			],
+			[
+				"postcomment",
+				"javascript/Views/post_comment.js"
+			],
+			[
+				"team.",
+				"less/team.less"
+			],
+			[
+				"post",
+				"javascript/Views/post.js"
+			],
+			[
+				"post.js",
+				"javascript/Models/post.js"
+			],
+			[
+				"post-templ",
+				"templates/partials/post-template.html"
+			],
+			[
+				"feed-item",
+				"javascript/Views/feed-items.js"
+			],
+			[
+				"main.less",
+				"less/main.less"
+			],
+			[
+				"router",
+				"javascript/router.js"
+			],
+			[
+				"collfeed",
+				"javascript/Collections/feed.js"
+			],
+			[
+				"feed",
+				"javascript/Views/feed.js"
+			],
+			[
+				"config",
+				"javascript/config.js"
+			],
+			[
+				"local",
+				"templates/partials/example-template-local.html"
+			],
+			[
+				"vfeed",
+				"javascript/Views/feed.js"
+			],
+			[
+				"athpage",
+				"templates/partials/athlete-page-template.html"
+			],
+			[
+				"init",
+				"javascript/init.js"
+			],
+			[
+				"util",
+				"javascript/util.js"
+			],
+			[
+				"backbone",
+				"javascript/vendor/backbone-1.1.2.js"
+			],
+			[
+				"notpopuplist",
+				"javascript/Views/notification-popup-list.js"
+			],
+			[
+				"vnotpopup",
+				"javascript/Views/notification-popup.js"
+			],
+			[
+				"mnotpopup",
+				"javascript/Models/notification-popup.js"
+			],
+			[
+				"popup-list",
+				"javascript/Views/notification-popup-list.js"
+			],
+			[
+				"colv",
+				"javascript/widgets/columnView.js"
+			],
+			[
+				"mnotpop",
+				"javascript/Models/notification-popup.js"
+			],
+			[
+				"not-popup",
+				"javascript/Views/notification-popup.js"
+			],
+			[
+				"not-popup.j",
+				"javascript/Views/notification-popup.js"
+			],
+			[
+				"not-popup-list",
+				"javascript/Views/notification-popup-list.js"
+			],
+			[
+				"util.",
+				"javascript/util.js"
+			],
+			[
+				"col-template",
+				"templates/partials/column-template.html"
+			],
+			[
+				"vath.js",
+				"javascript/Views/athlete.js"
+			],
+			[
+				"ath.js",
+				"javascript/Models/athlete.js"
+			],
+			[
+				"cv.js",
+				"javascript/widgets/columnView.js"
+			],
+			[
+				"mainless",
+				"less/main.less"
+			],
+			[
+				"not-pop",
+				"templates/partials/notification-popup.html"
+			],
+			[
+				"popuplist",
+				"javascript/Views/notification-popup-list.js"
+			],
+			[
+				"notification",
+				"javascript/Models/notification.js"
+			],
+			[
+				"mpost",
+				"javascript/Models/post.js"
+			],
+			[
+				"websoc",
+				"javascript/websockets.js"
+			],
+			[
+				"v/notif",
+				"javascript/Views/notifications.js"
+			],
+			[
+				"view_help",
+				"javascript/view_helpers.js"
+			],
+			[
+				"not-tmpl",
+				"templates/partials/notification-template.html"
+			],
+			[
+				"notif",
+				"javascript/Models/notification.js"
+			],
+			[
+				"web",
+				"javascript/websockets.js"
+			],
+			[
+				"websock",
+				"javascript/websockets.js"
+			],
+			[
+				"view",
+				"javascript/view_helpers.js"
+			],
+			[
+				"view_",
+				"javascript/view_helpers.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+		"_vintageous_last_buffer_search": "tiles",
+		"_vintageous_reset_during_init": true,
+		"vintage":
+		{
+			"_cmdline_cd": "/Users/johnfn/code/ld30/src"
+		}
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
