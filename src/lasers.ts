@@ -22,6 +22,8 @@ class Laser extends MapObject {
   render() {
     this.gfx.clear();
 
+    if (!this.onScreen()) return;
+
     if (this.on) {
       var top = this.raycast();
 
@@ -73,6 +75,7 @@ class Laser extends MapObject {
 
   collides(who:Phaser.Sprite) {
     if (!this.on) return false;
+    if (!this.onScreen()) return false;
 
     var distanceToWall = Number.POSITIVE_INFINITY;
     var closestIntersection = null;

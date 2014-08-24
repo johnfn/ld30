@@ -35,4 +35,8 @@ class MapObject extends Phaser.Sprite {
 
     return objs.filter((item) => { return item !== self; });
   }
+
+  onScreen():boolean {
+    return ((GameMap.x / GameMap.w) == this.mapX && (GameMap.y / GameMap.h) == this.mapY);
+  }
 }
