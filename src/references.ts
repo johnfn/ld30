@@ -7,6 +7,7 @@
 
 /// <reference path="followtext.ts" />
 /// <reference path="lasers.ts" />
+/// <reference path="ladder.ts" />
 /// <reference path="bounceshroom.ts" />
 /// <reference path="switch.ts" />
 /// <reference path="player.ts" />

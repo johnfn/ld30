@@ -56,6 +56,8 @@ class Laser extends MapObject {
   }
 
   collides(who:Phaser.Sprite) {
+    if (!this.on) return false;
+
     var distanceToWall = Number.POSITIVE_INFINITY;
     var closestIntersection = null;
 

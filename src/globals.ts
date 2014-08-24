@@ -4,7 +4,7 @@ class DEBUG {
   static debug:boolean = true;
   static showDialog:boolean = true;
 
-  static dMapX = 2;
+  static dMapX = 3;
   static dMapY = 0;
 }
 
@@ -64,7 +64,7 @@ class Dialogs {
 
     "3,0": [
       "DIARY LOG: Day 53, 2836 A.D., entry 2.",
-      "As my ship was going down, I looked down on this planet and my vision blurred.",
+      "As I was hurtling downwards, I looked down on this planet and my vision blurred.",
       "For a second I would have said there were *two* planets I was crashing into, not one.",
       "But when I looked again, it was only one.",
       "...",

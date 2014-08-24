@@ -5,6 +5,8 @@ class Player extends Focusable {
   safeX:number;
   safeY:number;
 
+  onLadder:boolean;
+
   flickerTime:number = 0;
 
   constructor() {
@@ -26,6 +28,10 @@ class Player extends Focusable {
     if (!this.isFocused) return;
 
     controlBody(this.body);
+
+    if (this.onLadder) {
+      controlBodyLadder(this.body);
+    }
 
     if (this.flickerTime > 0) {
       this.flickerTime--;

@@ -13,13 +13,23 @@ function controlBody(body:Phaser.Physics.Arcade.Body) {
 
 	if (cursors.up.isDown) {
 		if ((body.blocked.down || body.touching.down) && body.velocity.y > -600) {
-			console.log("derp");
-
 			body.velocity.y = -600;
 		}
 	}
 
 	body.velocity.y += 30;
+}
+
+function controlBodyLadder(body:Phaser.Physics.Arcade.Body) {
+	body.velocity.y = 0;
+
+	if (cursors.up.isDown) {
+		body.velocity.y = -300;
+	}
+
+	if (cursors.down.isDown) {
+		body.velocity.y = 300;
+	}
 }
 
 class MainState extends Phaser.State {
@@ -36,6 +46,7 @@ class MainState extends Phaser.State {
 		this.load.spritesheet("laserkey", "assets/laser.png", 32, 32, 1);
 		this.load.spritesheet("shroomkey", "assets/shroom.png", 32, 32, 2);
 		this.load.spritesheet("switchkey", "assets/switch.png", 32, 32, 1);
+		this.load.spritesheet("ladderkey", "assets/ladder.png", 32, 32, 1);
 
 		this.load.tilemap("map", "assets/map.json", null, Phaser.Tilemap.TILED_JSON);
 	}
@@ -70,13 +81,17 @@ class MainState extends Phaser.State {
 
 		var tileset:Phaser.Tilemap = this.game.add.tilemap("map", 32, 32, 30, 30); // w,h, mapw, maph
 		tileset.addTilesetImage("tiles", "tileskey", 25, 25);
-		tileset.setCollisionBetween(1, 151, true, "collision");
 
+		tileset.setCollisionBetween(1, 151, true, "collision");
 		G.walls = tileset.createLayer("collision");
+
 		var bg = tileset.createLayer("bg");
 
 		G.player = new Player();
 		this.game.add.existing(G.player);
+
+		G.player.x = 32;
+		G.player.y = 32;
 
 		if (DEBUG.debug) {
 			G.player.x += DEBUG.dMapX * GameMap.w;
@@ -116,6 +131,9 @@ class MainState extends Phaser.State {
 
 		BounceShroom.all = this.game.add.group(this.game.world);
 		tileset.createFromObjects("bounceshroom", 6, "shroomkey", 0, true, true, BounceShroom.all, BounceShroom);
+
+		Ladder.all = this.game.add.group(this.game.world);
+		tileset.createFromObjects("ladder", 10, "ladderkey", 0, true, true, Ladder.all, Ladder);
 	}
 
 	public update():void {
@@ -126,6 +144,11 @@ class MainState extends Phaser.State {
 
 		this.game.physics.arcade.overlap(G.player, Switch.all, (player, button) => {
 			button.trigger();
+		});
+
+		G.player.onLadder = false;
+		this.game.physics.arcade.overlap(G.player, Ladder.all, (player, ladder) => {
+			G.player.onLadder = true;
 		});
 
 		this.game.physics.arcade.collide(G.player, BounceShroom.all, (player, shroom) => {
