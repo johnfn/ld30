@@ -22,7 +22,7 @@ class BounceShroom extends MapObject {
   wither() {
     // insert nice animation here.
 
-    this.animations.play("boing", 15, false)/*.onComplete.add(() =>
+    this.animations.play("boing", 15)/*.onComplete.add(() =>
       console.log("done")
     );*/
 
