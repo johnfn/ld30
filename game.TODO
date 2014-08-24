@@ -14,7 +14,7 @@
    ✔ They SHOULD be one time use! But they can grow back/come back. @done (14-08-23 16:42)
    ✔ Need to come back on reenter @done (14-08-23 18:37)
    ☐ JumpBoostinX
- ☐ Sliding boxes
+ ✔ Sliding boxes @done (14-08-23 21:03)
    ☐ and lasers
  ☐ temporary switches
  ☐ Switch states
@@ -24,6 +24,7 @@
 
 Bugs
  ☐ Fix dialog to always be on top.
+ ☐ You can fall through things sometimes.
 
 Aesthetics
  ☐ particlez

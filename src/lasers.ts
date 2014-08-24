@@ -52,6 +52,16 @@ class Laser extends MapObject {
       maxHeight = Math.max(maxHeight, collisions[i].y);
     }
 
+    if (Crate.all) {
+      Crate.all.forEachAlive((c:Crate) => {
+        var hitPoint = c.y + c.height;
+
+        if (this.collides(c) && hitPoint > maxHeight) {
+          maxHeight = hitPoint;
+        }
+      }, this);
+    }
+
     return maxHeight;
   }
 
