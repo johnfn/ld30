@@ -43,7 +43,7 @@ class MainState extends Phaser.State {
 		this.load.spritesheet("hud", "assets/hud.png", 32, 32, 2);
 		this.load.spritesheet("selection", "assets/selection.png", 32, 32, 1);
 		this.load.spritesheet("dialog", "assets/dialog.png", 400, 200, 1);
-		this.load.spritesheet("rain", "assets/rain.png", 32, 32, 1);
+		this.load.spritesheet("rain", "assets/rain.png", 32, 32, 4);
 		this.load.spritesheet("laserkey", "assets/laser.png", 32, 32, 1);
 		this.load.spritesheet("shroomkey", "assets/shroom.png", 32, 32, 4);
 		this.load.spritesheet("switchkey", "assets/switch.png", 32, 32, 1);
@@ -162,6 +162,9 @@ class MainState extends Phaser.State {
 		this.game.physics.arcade.collide(Laser.all, Crate.all);
 		*/
 
+		this.game.physics.arcade.collide(G.rain, G.walls, (rain:Phaser.Sprite, wall) => {
+			rain.destroy();
+		});
 
 		this.game.physics.arcade.overlap(G.player, Switch.all, (player, button) => {
 			button.trigger();

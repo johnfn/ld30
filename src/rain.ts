@@ -19,5 +19,11 @@ class Rain {
     emitter.start(false, 1600, 5, 0);
 
     emitter.fixedToCamera = true;
+
+    G.rain = emitter;
   }
+}
+
+class RainSplash {
+
 }
