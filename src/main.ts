@@ -181,7 +181,9 @@ class MainState extends Phaser.State {
 			if (!(key in G.screensSeen)) {
 				G.screensSeen[key] = true;
 
-				G.dialog.start(Dialogs.byMap[key]);
+				if (Dialogs.byMap[key]) {
+					G.dialog.start(Dialogs.byMap[key]);
+				}
 			}
 
 			for (var i = 0; i < MapObject.allMapObjects.length; i++) {

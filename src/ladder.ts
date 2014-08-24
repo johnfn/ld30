@@ -5,7 +5,5 @@ class Ladder extends MapObject {
 
   constructor(game:Phaser.Game, x:number, y:number, spritesheet:string, frame:number) {
     super(game, x, y, spritesheet, frame);
-
-    console.log("!");
   }
 }
