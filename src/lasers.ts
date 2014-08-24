@@ -68,8 +68,6 @@ class Laser extends MapObject {
       }, this);
     }
 
-    console.log(did);
-
     return maxHeight;
   }
 
