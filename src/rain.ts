@@ -23,7 +23,3 @@ class Rain {
     G.rain = emitter;
   }
 }
-
-class RainSplash {
-
-}

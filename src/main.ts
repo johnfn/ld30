@@ -162,9 +162,14 @@ class MainState extends Phaser.State {
 		this.game.physics.arcade.collide(Laser.all, Crate.all);
 		*/
 
-		this.game.physics.arcade.collide(G.rain, G.walls, (rain:Phaser.Sprite, wall) => {
-			rain.destroy();
-		});
+		this.game.physics.arcade.collide(G.rain, G.walls
+			/*, (rain:Phaser.Sprite, wall) => {
+	    rain.animations.add("die", [0, 1, 2, 3], 15, false);
+
+	    if (rain.animations.currentAnim.name !== "die") {
+		    rain.play("die");
+		  }
+		}*/);
 
 		this.game.physics.arcade.overlap(G.player, Switch.all, (player, button) => {
 			button.trigger();
