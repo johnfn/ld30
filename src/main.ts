@@ -117,7 +117,8 @@ class MainState extends Phaser.State {
 		G.dialog = new Dialog();
 		this.game.add.existing(G.dialog);
 
-		tileset.createFromObjects("lasers_up", 4, "laserkey", 0, true, true, this.game.world, Laser);
+		Laser.all = this.game.add.group(this.game.world);
+		tileset.createFromObjects("lasers_up", 4, "laserkey", 0, true, true, Laser.all, Laser);
 
 		Switch.all = this.game.add.group(this.game.world);
 		tileset.createFromObjects("switch", 5, "switchkey", 0, true, true, Switch.all, Switch);
@@ -148,6 +149,9 @@ class MainState extends Phaser.State {
 
 		this.game.physics.arcade.collide(G.player, Crate.all);
 		this.game.physics.arcade.collide(G.walls, Crate.all);
+		this.game.physics.arcade.collide(Laser.all, Crate.all);
+
+		this.game.physics.arcade.collide(Laser.all, G.walls);
 
 
 		this.game.physics.arcade.overlap(G.player, Switch.all, (player, button) => {

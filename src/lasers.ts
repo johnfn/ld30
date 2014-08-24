@@ -5,6 +5,8 @@ class Laser extends MapObject {
   w:number = 10;
   on:boolean = true;
 
+  static all:Phaser.Group;
+
   gfx:Phaser.Graphics;
 
   constructor(a, b, c, d, e) {
