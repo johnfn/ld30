@@ -14,6 +14,7 @@ class G {
   static walls:Phaser.TilemapLayer;
   static player:Player;
   static game:Phaser.Game;
+  static drops:Phaser.Group;
   static hud:HUD;
   static keyboard:Phaser.Keyboard;
   static robot:Robot;

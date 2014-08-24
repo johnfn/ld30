@@ -88,6 +88,8 @@ class MainState extends Phaser.State {
 
 		new Rain();
 
+		G.drops = this.game.add.group();
+
 		tileset.setCollisionBetween(1, 1000, true, "collision");
 		G.walls = tileset.createLayer("collision");
 
@@ -179,7 +181,7 @@ class MainState extends Phaser.State {
 			  rain.visible = false;
 
 			  var rd:RainDrop = new RainDrop()
-			  G.game.add.existing(rd);
+			  G.drops.add(rd);
 			  rd.x = rain.x;
 			  rd.y = rain.y;
 
