@@ -23,3 +23,18 @@ class Rain {
     G.rain = emitter;
   }
 }
+
+class RainDrop extends Phaser.Sprite {
+  constructor() {
+    var self = this;
+
+    super(G.game, 0, 0, "rain");
+    this.animations.add("sploosh");
+
+    this.play("sploosh");
+
+    this.events.onAnimationComplete.add(() => {
+      self.destroy();
+    });
+  }
+}

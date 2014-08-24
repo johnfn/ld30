@@ -163,13 +163,23 @@ class MainState extends Phaser.State {
 		*/
 
 		this.game.physics.arcade.collide(G.rain, G.walls
-			/*, (rain:Phaser.Sprite, wall) => {
+			, (rain:Phaser.Sprite, wall) => {
+				/*
+				// this doesn't work?
 	    rain.animations.add("die", [0, 1, 2, 3], 15, false);
 
 	    if (rain.animations.currentAnim.name !== "die") {
 		    rain.play("die");
 		  }
-		}*/);
+		  */
+
+		  rain.visible = false;
+
+		  var rd:RainDrop = new RainDrop()
+		  G.game.add.existing(rd);
+		  rd.x = rain.x;
+		  rd.y = rain.y;
+		});
 
 		this.game.physics.arcade.overlap(G.player, Switch.all, (player, button) => {
 			button.trigger();
