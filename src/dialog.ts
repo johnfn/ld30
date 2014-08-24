@@ -63,7 +63,7 @@ class Dialog extends Phaser.Group {
     this.pressXText = new Phaser.Text(G.game, 0, 0, "Press X to continue", this.style);
 
     this.pressXText.x = this.box.x + this.box.width - this.pressXText.width - 10;
-    this.pressXText.y = this.box.y + this.box.height - this.pressXText.height;
+    this.pressXText.y = this.box.y + this.box.height - this.pressXText.height - 10;
     this.add(this.pressXText);
   }
 

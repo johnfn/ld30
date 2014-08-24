@@ -23,7 +23,7 @@
  ☐ lasers can hurt u
 
 Bugs
- ☐ Fix dialog to always be on top.
+ ✔ Fix dialog to always be on top. @done (14-08-24 12:45)
  ☐ You can fall through things sometimes.
  ☐ Blocking lasers is glitchy as crap.
 

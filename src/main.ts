@@ -118,9 +118,6 @@ class MainState extends Phaser.State {
 
 		G.focus = G.player;
 
-		G.dialog = new Dialog();
-		this.game.add.existing(G.dialog);
-
 		Laser.all = this.game.add.group(this.game.world);
 		tileset.createFromObjects("lasers_up", 4, "laserkey", 0, true, true, Laser.all, Laser);
 
@@ -135,6 +132,9 @@ class MainState extends Phaser.State {
 
 		Crate.all = this.game.add.group(this.game.world);
 		tileset.createFromObjects("crate", 11, "cratekey", 0, true, true, Crate.all, Crate);
+
+		G.dialog = new Dialog();
+		this.game.add.existing(G.dialog);
 
 		/*
 		var robotGroup = new Phaser.Group(G.game);

@@ -14,12 +14,18 @@ class BounceShroom extends MapObject {
       self.revive();
     });
 
+    this.animations.add("boing", [0, 1, 2, 3]);
+
     this.body.immovable = true;
   }
 
   wither() {
     // insert nice animation here.
 
-    this.kill();
+    this.animations.play("boing", 15, false)/*.onComplete.add(() =>
+      console.log("done")
+    );*/
+
+    //this.kill();
   }
 }
