@@ -5,7 +5,9 @@ class DEBUG {
   static showDialog:boolean = true;
 
   static dMapX = 3;
-  static dMapY = 0;
+  static dMapY = 1;
+  static dPlayerX = 300;
+  static dPlayerY = 32;
 }
 
 class G {

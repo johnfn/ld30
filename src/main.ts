@@ -90,10 +90,10 @@ class MainState extends Phaser.State {
 		G.player = new Player();
 		this.game.add.existing(G.player);
 
-		G.player.x = 32;
-		G.player.y = 32;
-
 		if (DEBUG.debug) {
+			G.player.x = DEBUG.dPlayerX;
+			G.player.y = DEBUG.dPlayerY;
+
 			G.player.x += DEBUG.dMapX * GameMap.w;
 			G.player.y += DEBUG.dMapY * GameMap.h;
 		}
@@ -106,14 +106,6 @@ class MainState extends Phaser.State {
 			]);
 
 		this.game.add.existing(qq);
-
-		/*
-		G.robot = new Robot();
-		this.game.add.existing(G.robot);
-
-		G.robot.x = 200;
-		G.robot.y = 50;
-		*/
 
 		G.hud = new HUD();
 
@@ -134,6 +126,12 @@ class MainState extends Phaser.State {
 
 		Ladder.all = this.game.add.group(this.game.world);
 		tileset.createFromObjects("ladder", 10, "ladderkey", 0, true, true, Ladder.all, Ladder);
+
+		var robotGroup = new Phaser.Group(G.game);
+		tileset.createFromObjects("robot", 10, "robot", 0, true, true, robotGroup, Robot);
+		var robot = robotGroup.getFirstAlive(); // there's only one.
+
+		G.robot = robot;
 	}
 
 	public update():void {
