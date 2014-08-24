@@ -2,7 +2,7 @@
 
 class DEBUG {
   static debug:boolean = true;
-  static showDialog:boolean = false;
+  static showDialog:boolean = true;
 
   static dMapX = 2;
   static dMapY = 0;
@@ -58,7 +58,7 @@ class Dialogs {
     ],
 
     "2,0": [
-      "It seems like some electronic systems here are still working.",
+      "It seems that, while all the inhabitants of this world are long gone, their technology continues to run.",
       "This laser seems particularly dangerous. I should exercise caution around it."
     ],
 

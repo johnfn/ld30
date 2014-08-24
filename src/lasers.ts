@@ -2,7 +2,6 @@
 
 class Laser extends MapObject {
   line:Phaser.Line;
-  data:Phaser.BitmapData;
   w:number = 10;
   on:boolean = true;
 
@@ -26,11 +25,21 @@ class Laser extends MapObject {
 
       this.gfx.beginFill(0xff0000, 1);
       this.gfx.drawRect(this.x, top, this.w, this.y - top);
+
+      this.line.start.x = this.x;
+      this.line.end.x = this.x;
+
+      this.line.start.y = top;
+      this.line.end.y = this.y;
     }
   }
 
-  update() {
+  public update() {
+    super.update();
+
     this.render();
+
+    console.log(this.collides(G.player));
   }
 
   raycast() {
@@ -42,6 +51,43 @@ class Laser extends MapObject {
     }
 
     return maxHeight;
+  }
+
+  collides(who:Phaser.Sprite) {
+    var distanceToWall = Number.POSITIVE_INFINITY;
+    var closestIntersection = null;
+
+    // Create an array of lines that represent the four edges of each wall
+    var lines:Phaser.Line[] = [
+        new Phaser.Line(who.x, who.y, who.x + who.width, who.y),
+        new Phaser.Line(who.x, who.y, who.x, who.y + who.height),
+        new Phaser.Line(who.x + who.width, who.y,
+            who.x + who.width, who.y + who.height),
+        new Phaser.Line(who.x, who.y + who.height,
+            who.x + who.width, who.y + who.height)
+    ];
+
+    // Test each of the edges in this wall against the ray.
+    // If the ray intersects any of the edges then the wall must be in the way.
+    for(var i = 0; i < lines.length; i++) {
+        var intersect:Phaser.Point = Phaser.Line.intersects(this.line, lines[i]);
+
+        if (intersect) {
+            // Find the closest intersection
+            var distance:number =
+                Phaser.Math.distance(this.line.start.x, this.line.start.y, intersect.x, intersect.y);
+
+            if (distance < distanceToWall) {
+                distanceToWall = distance;
+                closestIntersection = intersect;
+
+                return true;
+            }
+        }
+    }
+
+    return false;
+    // return closestIntersection;
   }
 
   off() {
