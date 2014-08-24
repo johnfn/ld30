@@ -13,7 +13,5 @@ class Crate extends MapObject {
 
     this.x = Math.floor(this.x);
     this.y = Math.floor(this.y);
-
-    console.log(this.y);
   }
 }

@@ -56,6 +56,8 @@ class MainState extends Phaser.State {
 		G.keyboard = G.game.input.keyboard;
 
 		G.onDown(Phaser.Keyboard.SPACEBAR, this.switchPlayer, this);
+
+		G.game.stage.backgroundColor = "#356b92";
 	}
 
  	switchPlayer():void {
@@ -99,6 +101,7 @@ class MainState extends Phaser.State {
 			G.player.y += DEBUG.dMapY * GameMap.h;
 		}
 
+		/*
 		var qq = new FollowText(G.player,
 			[ { text: 'hello', time: 100 },
 				{ text: 'hi', time: 100 },
@@ -107,6 +110,7 @@ class MainState extends Phaser.State {
 			]);
 
 		this.game.add.existing(qq);
+		*/
 
 		G.hud = new HUD();
 
@@ -147,11 +151,13 @@ class MainState extends Phaser.State {
 		this.game.physics.arcade.collide(G.player, G.walls);
 		this.game.physics.arcade.collide(G.robot, G.walls);
 
+		/*
 		this.game.physics.arcade.collide(G.player, Crate.all);
 		this.game.physics.arcade.collide(G.walls, Crate.all);
 
 		this.game.physics.arcade.collide(Laser.all, G.walls);
 		this.game.physics.arcade.collide(Laser.all, Crate.all);
+		*/
 
 
 		this.game.physics.arcade.overlap(G.player, Switch.all, (player, button) => {
