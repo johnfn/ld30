@@ -1,7 +1,7 @@
 /// <reference path="references.ts" />
 
 class DEBUG {
-  static debug:boolean = false;
+  static debug:boolean = true;
   static showDialog:boolean = true;
 
   static dMapX = 3;
