@@ -85,7 +85,7 @@ class MainState extends Phaser.State {
 		var tileset:Phaser.Tilemap = this.game.add.tilemap("map", 32, 32, 30, 30); // w,h, mapw, maph
 		tileset.addTilesetImage("tiles", "tileskey", 25, 25);
 
-		tileset.setCollisionBetween(1, 151, true, "collision");
+		tileset.setCollisionBetween(1, 1000, true, "collision");
 		G.walls = tileset.createLayer("collision");
 
 		var bg = tileset.createLayer("bg");
