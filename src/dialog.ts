@@ -22,6 +22,8 @@ class Dialog extends Phaser.Group {
   }
 
   start(dialog:string[]) {
+    if (!DEBUG.showDialog) return;
+
     this.dialog = dialog;
     this.visible = true;
 

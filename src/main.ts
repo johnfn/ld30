@@ -78,6 +78,11 @@ class MainState extends Phaser.State {
 		G.player = new Player();
 		this.game.add.existing(G.player);
 
+		if (DEBUG.debug) {
+			G.player.x += DEBUG.dMapX * GameMap.w;
+			G.player.y += DEBUG.dMapY * GameMap.h;
+		}
+
 		var qq = new FollowText(G.player,
 			[ { text: 'hello', time: 100 },
 				{ text: 'hi', time: 100 },

@@ -1,5 +1,13 @@
 /// <reference path="references.ts" />
 
+class DEBUG {
+  static debug:boolean = true;
+  static showDialog:boolean = false;
+
+  static dMapX = 2;
+  static dMapY = 0;
+}
+
 class G {
   static walls:Phaser.TilemapLayer;
   static player:Player;
