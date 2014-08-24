@@ -48,7 +48,7 @@ class Dialog extends Phaser.Group {
   setStyle() {
     this.style = {
       wordWrapWidth: this.box.width - 20,
-      font: "15px Arial",
+      font: "20px Cousine",
       wordWrap: true,
       fill: "#000"
     };
