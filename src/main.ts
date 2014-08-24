@@ -47,6 +47,7 @@ class MainState extends Phaser.State {
 		this.load.spritesheet("shroomkey", "assets/shroom.png", 32, 32, 2);
 		this.load.spritesheet("switchkey", "assets/switch.png", 32, 32, 1);
 		this.load.spritesheet("ladderkey", "assets/ladder.png", 32, 32, 1);
+		this.load.spritesheet("cratekey", "assets/crate.png", 32, 32, 1);
 
 		this.load.tilemap("map", "assets/map.json", null, Phaser.Tilemap.TILED_JSON);
 	}
@@ -127,11 +128,16 @@ class MainState extends Phaser.State {
 		Ladder.all = this.game.add.group(this.game.world);
 		tileset.createFromObjects("ladder", 10, "ladderkey", 0, true, true, Ladder.all, Ladder);
 
+		Crate.all = this.game.add.group(this.game.world);
+		tileset.createFromObjects("crate", 11, "cratekey", 0, true, true, Crate.all, Crate);
+
+		/*
 		var robotGroup = new Phaser.Group(G.game);
 		tileset.createFromObjects("robot", 10, "robot", 0, true, true, robotGroup, Robot);
 		var robot = robotGroup.getFirstAlive(); // there's only one.
+		*/
 
-		G.robot = robot;
+		//G.robot = robot;
 	}
 
 	public update():void {
@@ -139,6 +145,10 @@ class MainState extends Phaser.State {
 
 		this.game.physics.arcade.collide(G.player, G.walls);
 		this.game.physics.arcade.collide(G.robot, G.walls);
+
+		this.game.physics.arcade.collide(G.player, Crate.all);
+		this.game.physics.arcade.collide(G.walls, Crate.all);
+
 
 		this.game.physics.arcade.overlap(G.player, Switch.all, (player, button) => {
 			button.trigger();

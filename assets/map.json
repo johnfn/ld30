@@ -768,7 +768,7 @@
         }, 
         {
          "height":200,
-         "name":"box",
+         "name":"crate",
          "objects":[
                 {
                  "gid":11,
