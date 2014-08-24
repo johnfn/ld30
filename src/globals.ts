@@ -21,6 +21,8 @@ class G {
   static focus:Focusable;
   static dialog:Dialog;
 
+  static dead:Phaser.Group;
+
   static rain:Phaser.Particles.Arcade.Emitter;
 
   static SCREEN_WIDTH:number = 512;

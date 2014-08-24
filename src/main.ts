@@ -139,6 +139,8 @@ class MainState extends Phaser.State {
 		G.dialog = new Dialog();
 		this.game.add.existing(G.dialog);
 
+		G.dead = new Phaser.Group(G.game);
+
 		/*
 		var robotGroup = new Phaser.Group(G.game);
 		tileset.createFromObjects("robot", 10, "robot", 0, true, true, robotGroup, Robot);
@@ -173,12 +175,17 @@ class MainState extends Phaser.State {
 		  }
 		  */
 
-		  rain.visible = false;
+		  if (rain.visible) {
+			  rain.visible = false;
 
-		  var rd:RainDrop = new RainDrop()
-		  G.game.add.existing(rd);
-		  rd.x = rain.x;
-		  rd.y = rain.y;
+			  var rd:RainDrop = new RainDrop()
+			  G.game.add.existing(rd);
+			  rd.x = rain.x;
+			  rd.y = rain.y;
+
+			  rd.scale.x = rain.scale.x;
+			  rd.scale.y = rain.scale.y;
+			}
 		});
 
 		this.game.physics.arcade.overlap(G.player, Switch.all, (player, button) => {
@@ -197,6 +204,8 @@ class MainState extends Phaser.State {
 				shroom.wither();
 			}
 		});
+
+		G.dead.destroy(true);
 
 		this.camera.follow(G.focus, Phaser.Camera.FOLLOW_PLATFORMER);
 

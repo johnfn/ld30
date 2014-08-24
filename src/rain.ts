@@ -34,7 +34,7 @@ class RainDrop extends Phaser.Sprite {
     this.play("sploosh");
 
     this.events.onAnimationComplete.add(() => {
-      self.destroy();
+      G.dead.add(self);
     });
   }
 }
