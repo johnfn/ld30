@@ -39,7 +39,9 @@ class Laser extends MapObject {
 
     this.render();
 
-    console.log(this.collides(G.player));
+    if (this.collides(G.player)) {
+      G.player.hit(this);
+    }
   }
 
   raycast() {

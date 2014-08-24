@@ -168,6 +168,8 @@ class MainState extends Phaser.State {
 					mo.enterLevel.dispatch(relMapX, relMapY);
 				}
 			}
+
+			G.player.enteredLevel.dispatch(relMapX, relMapY);
 		}
 	}
 }
