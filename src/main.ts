@@ -43,6 +43,7 @@ class MainState extends Phaser.State {
 		this.load.spritesheet("hud", "assets/hud.png", 32, 32, 2);
 		this.load.spritesheet("selection", "assets/selection.png", 32, 32, 1);
 		this.load.spritesheet("dialog", "assets/dialog.png", 400, 200, 1);
+		this.load.spritesheet("rain", "assets/rain.png", 32, 32, 1);
 		this.load.spritesheet("laserkey", "assets/laser.png", 32, 32, 1);
 		this.load.spritesheet("shroomkey", "assets/shroom.png", 32, 32, 4);
 		this.load.spritesheet("switchkey", "assets/switch.png", 32, 32, 1);
@@ -84,6 +85,8 @@ class MainState extends Phaser.State {
 
 		var tileset:Phaser.Tilemap = this.game.add.tilemap("map", 32, 32, 30, 30); // w,h, mapw, maph
 		tileset.addTilesetImage("tiles", "tileskey", 25, 25);
+
+		new Rain();
 
 		tileset.setCollisionBetween(1, 1000, true, "collision");
 		G.walls = tileset.createLayer("collision");

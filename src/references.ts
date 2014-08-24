@@ -5,6 +5,8 @@
 /// <reference path="mapobject.ts" />
 /// <reference path="focusable.ts" />
 
+/// <reference path="rain.ts" />
+
 /// <reference path="followtext.ts" />
 /// <reference path="lasers.ts" />
 /// <reference path="ladder.ts" />
