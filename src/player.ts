@@ -5,6 +5,8 @@ class Player extends Focusable {
   safeX:number;
   safeY:number;
 
+  flickerTime:number = 0;
+
   constructor() {
     super(G.game, 64, 0, "player", 0);
 
@@ -14,8 +16,6 @@ class Player extends Focusable {
   }
 
   enterLevel():void {
-    console.log("enter");
-
     this.safeX = this.x;
     this.safeY = this.y;
   }
@@ -26,6 +26,14 @@ class Player extends Focusable {
     if (!this.isFocused) return;
 
     controlBody(this.body);
+
+    if (this.flickerTime > 0) {
+      this.flickerTime--;
+
+      this.alpha = (Math.floor(this.flickerTime / 4) % 3 == 0) ? 0 : 1;
+    } else {
+      this.alpha = 1;
+    }
   }
 
   hit(m:MapObject) {
@@ -42,6 +50,6 @@ class Player extends Focusable {
   }
 
   flicker() {
-
+    this.flickerTime = 200;
   }
 }
