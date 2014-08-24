@@ -46,7 +46,7 @@ class MainState extends Phaser.State {
 		this.load.spritesheet("rain", "assets/rain.png", 32, 32, 4);
 		this.load.spritesheet("laserkey", "assets/laser.png", 32, 32, 1);
 		this.load.spritesheet("shroomkey", "assets/shroom.png", 32, 32, 4);
-		this.load.spritesheet("switchkey", "assets/switch.png", 32, 32, 1);
+		this.load.spritesheet("switchkey", "assets/switch.png", 32, 32, 2);
 		this.load.spritesheet("ladderkey", "assets/ladder.png", 32, 32, 1);
 		this.load.spritesheet("cratekey", "assets/crate.png", 32, 32, 1);
 

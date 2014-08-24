@@ -5,6 +5,8 @@ class Switch extends MapObject {
 
   constructor(game:Phaser.Game, x:number, y:number, spritesheet:string, frame:number) {
     super(game, x, y, spritesheet, frame);
+
+    this.animations.add("down", [1]);
   }
 
   trigger() {
@@ -12,5 +14,7 @@ class Switch extends MapObject {
     var laser:Laser = <any> this.getObjectsOnLevel()[0];
 
     laser.off();
+
+    this.animations.play("down");
   }
 }
