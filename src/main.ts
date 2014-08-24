@@ -124,9 +124,11 @@ class MainState extends Phaser.State {
 		});
 
 		this.game.physics.arcade.collide(G.player, BounceShroom.all, (player, shroom) => {
-			player.body.velocity.y *= -3.0;
+			if (shroom.y - player.y > 5) {
+				G.player.body.velocity.y = -800;
 
-			shroom.wither();
+				shroom.wither();
+			}
 		});
 
 		this.camera.follow(G.focus, Phaser.Camera.FOLLOW_PLATFORMER);
