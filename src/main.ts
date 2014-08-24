@@ -149,9 +149,9 @@ class MainState extends Phaser.State {
 
 		this.game.physics.arcade.collide(G.player, Crate.all);
 		this.game.physics.arcade.collide(G.walls, Crate.all);
-		this.game.physics.arcade.collide(Laser.all, Crate.all);
 
 		this.game.physics.arcade.collide(Laser.all, G.walls);
+		this.game.physics.arcade.collide(Laser.all, Crate.all);
 
 
 		this.game.physics.arcade.overlap(G.player, Switch.all, (player, button) => {

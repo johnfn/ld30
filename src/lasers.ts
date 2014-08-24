@@ -28,11 +28,11 @@ class Laser extends MapObject {
       this.gfx.beginFill(0xff0000, 1);
       this.gfx.drawRect(this.x, top, this.w, this.y - top);
 
-      this.line.start.x = this.x;
-      this.line.end.x = this.x;
+      this.line.start.x = this.x + 12;
+      this.line.end.x = this.x + 12;
 
       this.line.start.y = top;
-      this.line.end.y = this.y;
+      this.line.end.y = this.y + 12;
     }
   }
 
@@ -54,15 +54,21 @@ class Laser extends MapObject {
       maxHeight = Math.max(maxHeight, collisions[i].y);
     }
 
+    var did:boolean = false;
+
     if (Crate.all) {
       Crate.all.forEachAlive((c:Crate) => {
         var hitPoint = c.y + c.height;
 
         if (this.collides(c) && hitPoint > maxHeight) {
           maxHeight = hitPoint;
+
+          did = true;
         }
       }, this);
     }
+
+    console.log(did);
 
     return maxHeight;
   }

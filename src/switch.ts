@@ -8,8 +8,6 @@ class Switch extends MapObject {
   }
 
   trigger() {
-    console.log("trigger");
-
     //TODO
     var laser:Laser = <any> this.getObjectsOnLevel()[0];
 

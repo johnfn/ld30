@@ -8,7 +8,12 @@ class Crate extends MapObject {
   }
 
   update():void {
-    this.body.velocity.y = 90;
+    this.body.velocity.y = 100;
     this.body.velocity.x *= 0.9;
+
+    this.x = Math.floor(this.x);
+    this.y = Math.floor(this.y);
+
+    console.log(this.y);
   }
 }
