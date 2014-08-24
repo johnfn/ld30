@@ -48,7 +48,7 @@ class Dialog extends Phaser.Group {
   setStyle() {
     this.style = {
       wordWrapWidth: this.box.width - 20,
-      font: "20px Cousine",
+      font: "bold 14px 'Press Start 2P'",
       wordWrap: true,
       fill: "#000"
     };
