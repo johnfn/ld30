@@ -1,9 +1,9 @@
 /// <reference path="references.ts" />
 
 class Laser extends MapObject {
-  line:Phaser.Line;
   w:number = 10;
   on:boolean = true;
+  top:number = 0;
 
   static all:Phaser.Group;
 
@@ -14,8 +14,6 @@ class Laser extends MapObject {
 
     this.gfx = G.game.add.graphics(0, 0);
 
-    this.line = new Phaser.Line(this.x, this.y + 32, this.x, 0);
-
     this.render();
   }
 
@@ -25,16 +23,10 @@ class Laser extends MapObject {
     if (!this.onScreen()) return;
 
     if (this.on) {
-      var top = this.raycast();
+      this.top = this.raycast();
 
       this.gfx.beginFill(0xff0000, 1);
-      this.gfx.drawRect(this.x, top, this.w, this.y - top);
-
-      this.line.start.x = this.x + 12;
-      this.line.end.x = this.x + 12;
-
-      this.line.start.y = top;
-      this.line.end.y = this.y + 12;
+      this.gfx.drawRect(this.x, this.top, this.w, this.y - this.top);
     }
   }
 
@@ -49,14 +41,14 @@ class Laser extends MapObject {
   }
 
   raycast() {
-    var collisions:Phaser.Tile[] = G.walls.getRayCastTiles(this.line, 4, true);
     var maxHeight = 0;
+    var line:Phaser.Line = new Phaser.Line(this.x, this.y, this.x, 0);
+
+    var collisions:Phaser.Tile[] = G.walls.getRayCastTiles(line, 4, true);
 
     for (var i = 0; i < collisions.length; i++) {
-      maxHeight = Math.max(maxHeight, collisions[i].y);
+      maxHeight = Math.max(maxHeight, collisions[i].y + 32);
     }
-
-    var did:boolean = false;
 
     if (Crate.all) {
       Crate.all.forEachAlive((c:Crate) => {
@@ -64,8 +56,6 @@ class Laser extends MapObject {
 
         if (this.collides(c) && hitPoint > maxHeight) {
           maxHeight = hitPoint;
-
-          did = true;
         }
       }, this);
     }
@@ -76,6 +66,8 @@ class Laser extends MapObject {
   collides(who:Phaser.Sprite) {
     if (!this.on) return false;
     if (!this.onScreen()) return false;
+
+    var line:Phaser.Line = new Phaser.Line(this.x, this.y, this.x, this.top);
 
     var distanceToWall = Number.POSITIVE_INFINITY;
     var closestIntersection = null;
@@ -90,27 +82,28 @@ class Laser extends MapObject {
             who.x + who.width, who.y + who.height)
     ];
 
+    var hit:boolean = false;
+
     // Test each of the edges in this wall against the ray.
     // If the ray intersects any of the edges then the wall must be in the way.
     for(var i = 0; i < lines.length; i++) {
-        var intersect:Phaser.Point = Phaser.Line.intersects(this.line, lines[i]);
+        var intersect:Phaser.Point = Phaser.Line.intersects(line, lines[i]);
 
         if (intersect) {
             // Find the closest intersection
             var distance:number =
-                Phaser.Math.distance(this.line.start.x, this.line.start.y, intersect.x, intersect.y);
+                Phaser.Math.distance(line.start.x, line.start.y, intersect.x, intersect.y);
 
             if (distance < distanceToWall) {
-                distanceToWall = distance;
-                closestIntersection = intersect;
+              hit = true;
 
-                return true;
+              distanceToWall = distance;
+              closestIntersection = intersect;
             }
         }
     }
 
-    return false;
-    // return closestIntersection;
+    return hit;
   }
 
   off() {

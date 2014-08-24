@@ -4,7 +4,7 @@ class DEBUG {
   static debug:boolean = true;
   static showDialog:boolean = true;
 
-  static dMapX = 1;
+  static dMapX = 2;
   static dMapY = 0;
   static dPlayerX = 300;
   static dPlayerY = 32;
